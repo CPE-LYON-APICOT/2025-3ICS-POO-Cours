@@ -1,16 +1,13 @@
 {
 	"name": "svelte-deck",
 	"version": "0.0.1",
-	"homepage": "https://cpe-lyon-apicot.github.io/2025-3ICS-POO-Cours/",
-	"gitRepo":"https://github.com/CPE-LYON-APICOT/2025-3ICS-POO-Cours.git",
-	"cname":"cpe-lyon-apicot.github.io",
-	"repoName":"2025-3ICS-POO-Cours",
+	"cnahme":"3ics-2025.alexispicot",
 	"private": true,
 	"type": "module",
 	"scripts": {
 		"dev": "vite dev",
 		"build": "vite build",
-		"deploy":"vite build && npx gh-pages -d build -r %npm_package_gitRepo% -t --nojekyll -p 5 --cname %npm_package_cname%",
+		"deploy":"vite build && gh-pages -d build -t --nojekyll -p 5 --cname %npm_package_cname%",
 		"preview": "vite preview",
 		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
 		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
