@@ -1,7 +1,7 @@
 {
 	"name": "svelte-deck",
 	"version": "0.0.1",
-	"cnahme": "3ics-2025.alexispicot",
+	"cname": "3ics-2025.alexispicot.fr",
 	"private": true,
 	"type": "module",
 	"scripts": {
@@ -20,6 +20,7 @@
 		"@sveltejs/kit": "2.5.0",
 		"@sveltejs/vite-plugin-svelte": "^3.0.2",
 		"@tsconfig/svelte": "^5.0.2",
+		"@types/jquery": "^3.5.32",
 		"@types/reveal.js": "^4.4.8",
 		"@typescript-eslint/eslint-plugin": "^6.21.0",
 		"@typescript-eslint/parser": "^6.21.0",
@@ -42,13 +43,15 @@
 		"vite": "^5.1.1"
 	},
 	"dependencies": {
+		"@edc4it/reveal.js-external-code": "^1.0.4",
 		"@fontsource/jetbrains-mono": "^5.0.18",
 		"@fontsource/manrope": "^5.0.18",
 		"@types/plantuml-encoder": "^1.4.2",
 		"@types/reveal.js": "^4.4.8",
+		"add": "^2.0.6",
 		"pako": "^2.1.0",
 		"plantuml-encoder": "^1.4.0",
-		"reveal.js": "^5.0.4",
+		"reveal.js": "^5.1.0",
 		"utf8-bytes": "^0.0.1"
 	}
 }

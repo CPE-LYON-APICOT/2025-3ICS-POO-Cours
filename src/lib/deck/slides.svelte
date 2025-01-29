@@ -1,7 +1,8 @@
 <script lang="ts">
+
 	import { onMount } from 'svelte'
 
-	import '$lib/plugin/reveal.js-fullscreen-code.css'
+	import '$lib/plugin/revealjs-fullscreen-code.css'
 	import plantumlEncoder from 'plantuml-encoder'
 	import Reveal from 'reveal.js'
 	import 'reveal.js/dist/reveal.css'
@@ -12,9 +13,10 @@
 	import Notes from 'reveal.js/plugin/notes/notes'
 	import Presentation from '../presentation.svelte'
 
+	import ExternalCode from '@edc4it/reveal.js-external-code'
 	onMount(() => {
 		const deck = new Reveal({
-			plugins: [Markdown, Highlight, Notes],
+			plugins: [ExternalCode, Markdown, Highlight, Notes],
 			autoAnimateEasing: 'ease',
 			autoAnimateDuration: 1,
 			autoAnimateUnmatched: true,
@@ -32,9 +34,7 @@
 			maxScale: 1.0,
 			width: 1280,
 			height: 720,
-			pdfSeparateFragments: false ,
-			//view: 'scale',
-			//scrollProgress: true
+			pdfSeparateFragments: false
 			// controls: false,
 			// progress: false
 		})
@@ -42,11 +42,18 @@
 		registerPlantUml(deck)
 		deck.initialize({
 			dependencies: [
-            // ...
-            { src: 'src/lib/plugin/jquery-3.1.1.min.js' },
-            { src: 'src/lib/plugin/reveal.js-fullscreen-code.js' }
-        ]
+				// ...
+				{ src: new URL('$lib/plugin/jquery-3.1.1.min.js', import.meta.url).href },
+				{ src: new URL('$lib/plugin/revealjs-fullscreen-code.js', import.meta.url).href }
+			]
+		}).then(() => {
+			if (window.location.search.includes('print-pdf')) {
+				setTimeout(() => {
+					window.print()
+			}, 2000)
+		}
 		})
+		window.deck = deck;
 	})
 	function registerPlantUml(deck: Reveal.Api) {
 		deck.registerPlugin({
@@ -57,7 +64,7 @@
 					elements.forEach((element) => {
 						const plantuml = element.textContent
 						const img = document.createElement('img')
-						console.log(plantuml);
+
 						img.src = ('//www.plantuml.com/plantuml/svg/' +
 							plantumlEncoder.encode(plantuml!)) as string
 						var oldElem = (element.parentElement as HTMLElement).closest('div.uml') as HTMLElement
