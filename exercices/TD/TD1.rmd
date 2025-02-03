@@ -431,9 +431,10 @@ class Personne {
 
 ## Q40 : Je veux coder un avion, un dragon, un bateau et un lion. Quelles classes et interfaces devrais-je créer ?
 
-<article>
 
-```plantuml 
+
+<article>
+```plantuml
 @startuml
 
 interface IAérien {
@@ -470,7 +471,6 @@ class Lion extends Animal {
 
 @enduml
 ```
-
 
 
 </article>

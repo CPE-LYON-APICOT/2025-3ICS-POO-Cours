@@ -1,6 +1,8 @@
 # Load necessary library
 library(rmarkdown)
 
+
+
 # Define the Lua filter path
 lua_filter <- "filter.lua"
 # Get the absolute path of the Lua filter
@@ -31,7 +33,7 @@ for (file in rmd_files) {
   }
   try({
     render(file,
-      output_format = pdf_document(),
+      output_format = pdf_document(pandoc_args = c("--lua-filter", lua_filter, "--filter", "pandoc-plantuml")),
       output_dir = output_pdf_dir
     )
     cat("Rendered to PDF:", file, "\n")
@@ -43,7 +45,7 @@ for (file in rmd_files) {
   # Render to Markdown in the 'work' folder with Lua filter
   try({
     render(file,
-      output_format = md_document(pandoc_args = c("--lua-filter", lua_filter)),
+      output_format = md_document(pandoc_args = c("--lua-filter", lua_filter, "--filter", "pandoc-plantuml")),
       output_dir = output_md_dir
     )
     cat("Rendered to Markdown:", file, "\n")

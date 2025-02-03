@@ -1,0 +1,35 @@
+@startuml
+
+interface IAérien {
+    void voler();
+}
+
+interface IAquatique {
+    void nager();
+}
+
+abstract class Animal {
+    void crier();
+}
+abstract class Vehicule {
+    float niveauCarburant;
+}
+class Avion extends Vehicule implements IAérien {
+    void voler();
+}
+
+class Dragon extends Animal implements IAérien {
+    void voler();
+}
+
+class Bateau extends Vehicule implements IAquatique {
+    void nager();
+}
+
+class Lion extends Animal {
+    void crier();
+}
+
+
+
+@enduml

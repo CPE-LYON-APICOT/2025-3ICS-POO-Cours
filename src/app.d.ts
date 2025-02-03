@@ -14,6 +14,9 @@ declare global {
 	declare interface Window{
 		deck:Reveal.Api
 	}
+	declare interface UserProps{
+		repoUrl:string
+	}
 }
 
 export {}

@@ -24,6 +24,22 @@ end
 
 -- Applying the filter to the Pandoc document
 function Pandoc(doc)
-  doc.blocks = remove_blockquotes(doc.blocks)
+  if FORMAT:match 'md' then
+    doc.blocks = remove_blockquotes(doc.blocks)
+  end
   return doc
 end
+-- Base64 encoding function
+local function base64_encode(data)
+  local b64 = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/"
+  return (data:gsub(".", function(x)
+      local r, b = "", string.byte(x)
+      for i = 8, 1, -2 do
+          r = r .. b64:sub((b >> i) & 0x3F + 1, (b >> i) & 0x3F + 1)
+      end
+      return r
+  end))
+end
+
+
+
