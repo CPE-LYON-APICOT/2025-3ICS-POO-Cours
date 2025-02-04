@@ -364,19 +364,17 @@ display: none;
 <li><a href="#étape-3-création-de-la-classe-personnage" id="toc-étape-3-création-de-la-classe-personnage"><strong>Étape 3 : Création de la classe <code>Personnage</code></strong></a></li>
 <li><a href="#étape-4-ajout-de-compétences-au-personnage" id="toc-étape-4-ajout-de-compétences-au-personnage"><strong>Étape 4 : Ajout de compétences au personnage</strong></a></li>
 <li><a href="#étape-5-implémentation-de-classes-de-personnages-spécialisées" id="toc-étape-5-implémentation-de-classes-de-personnages-spécialisées"><strong>Étape 5 : Implémentation de classes de personnages spécialisées</strong></a></li>
-<li><a href="#conseils" id="toc-conseils">Conseils :</a></li>
 <li><a href="#étape-6-utilisation-du-polymorphisme" id="toc-étape-6-utilisation-du-polymorphisme"><strong>Étape 6 : Utilisation du polymorphisme</strong></a></li>
 <li><a href="#étape-7-ajout-darmes-et-darmures-au-personnage" id="toc-étape-7-ajout-darmes-et-darmures-au-personnage">Étape 7 : Ajout d’armes et d’armures au personnage</a></li>
 <li><a href="#étape-8-gestion-de-linventaire" id="toc-étape-8-gestion-de-linventaire">Étape 8 : Gestion de l’inventaire</a></li>
 <li><a href="#etape-9-niveau-dexpérience-et-points-de-vie" id="toc-etape-9-niveau-dexpérience-et-points-de-vie">Etape 9 : Niveau d’expérience et Points de vie</a></li>
-<li><a href="#création-du-système-dexploration" id="toc-création-du-système-dexploration">Création du système d’exploration</a></li>
-<li><a href="#interfaces-pour-la-génération-de-loot-de-combat-et-dexpérience" id="toc-interfaces-pour-la-génération-de-loot-de-combat-et-dexpérience">Interfaces pour la génération de loot, de combat et d’expérience</a></li>
-<li><a href="#implémentations-des-classes" id="toc-implémentations-des-classes">Implémentations des classes :</a></li>
+<li><a href="#étape-9-création-du-système-dexploration" id="toc-étape-9-création-du-système-dexploration">Étape 9 : Création du système d’exploration</a></li>
 </ul></li>
 </ul></li>
 </ul>
 </div>
 
+<p>[TOC]</p>
 <div id="travaux-pratiques-introduction-à-la-programmation-orientée-objet-en-java---création-dun-rpg" class="section level1">
 <h1>Travaux Pratiques : Introduction à la Programmation Orientée Objet en Java - Création d’un RPG</h1>
 <div id="introduction" class="section level2">
@@ -755,9 +753,8 @@ public class Personnage {
 <li>Dans le constructeur, appelez la méthode <code>super()</code> pour appeler le constructeur parent qui est censé initialiser les compétences à 0 Après l’initialisation, dans la classe enfant, ajouter par exemple <code>augmenterCompetence(Competence.AGILITE, 5);</code> ainsi chaque classe de personnage à un avantage par rapport aux autres.</li>
 </ol>
 </div>
-</div>
-<div id="conseils" class="section level3">
-<h3>Conseils :</h3>
+<div id="conseils" class="section level4">
+<h4>Conseils :</h4>
 <ul>
 <li>Pour créer une classe avec héritage, utilisez le mot-clé <code>extends</code> suivi du nom de la classe parente.</li>
 <li>Pour surcharger une méthode, déclarez une méthode avec la même signature dans la classe enfant, mais avec une implémentation différente.</li>
@@ -777,6 +774,7 @@ class Mercenaire extends Personnage {
         System.out.println(getNom() + &quot; utilise son attaque spéciale : Tir de précision !&quot;);
     }
 }</code></pre>
+</div>
 </div>
 <div id="étape-6-utilisation-du-polymorphisme" class="section level3">
 <h3><strong>Étape 6 : Utilisation du polymorphisme</strong></h3>
@@ -872,8 +870,8 @@ class Mercenaire extends Personnage {
 </ol>
 </div>
 </div>
-<div id="création-du-système-dexploration" class="section level3">
-<h3>Création du système d’exploration</h3>
+<div id="étape-9-création-du-système-dexploration" class="section level3">
+<h3>Étape 9 : Création du système d’exploration</h3>
 <p>Maintenant que nous avons enrichi notre personnage, nous allons créer un système d’exploration pour lui permettre de vivre des aventures excitantes et dangereuses !</p>
 <div id="classe-explorationgenerator" class="section level4">
 <h4>Classe ExplorationGenerator</h4>
@@ -892,33 +890,32 @@ class Mercenaire extends Personnage {
 <p>Stockez une référence vers une instance des interfaces <code>ILootGenerator</code>, <code>ICombatGenerator</code> et <code>IExperienceGenerator</code>. Ces interfaces prennent en paramètre un personnage et renvoient respectivement un objet <code>Item</code>, un boolean et un entier.</p></li>
 </ol>
 </div>
-</div>
-<div id="interfaces-pour-la-génération-de-loot-de-combat-et-dexpérience" class="section level3">
-<h3>Interfaces pour la génération de loot, de combat et d’expérience</h3>
+<div id="interfaces-pour-la-génération-de-loot-de-combat-et-dexpérience" class="section level4">
+<h4>Interfaces pour la génération de loot, de combat et d’expérience</h4>
 <p>Voici les interfaces et les classes concrètes pour générer du loot, gérer les combats et calculer l’expérience gagnée par le personnage.</p>
-<div id="interface-ilootgenerator" class="section level4">
-<h4>Interface ILootGenerator :</h4>
+<div id="interface-ilootgenerator" class="section level5">
+<h5>Interface ILootGenerator :</h5>
 <pre class="java"><code>public interface ILootGenerator {
     Item genererLoot();
 }</code></pre>
 </div>
-<div id="interface-icombatgenerator" class="section level4">
-<h4>Interface ICombatGenerator :</h4>
+<div id="interface-icombatgenerator" class="section level5">
+<h5>Interface ICombatGenerator :</h5>
 <pre class="java"><code>public interface ICombatGenerator {
     boolean combat(Personnage personnage);
 }</code></pre>
 </div>
-<div id="interface-iexperiencegenerator" class="section level4">
-<h4>Interface IExperienceGenerator :</h4>
+<div id="interface-iexperiencegenerator" class="section level5">
+<h5>Interface IExperienceGenerator :</h5>
 <pre class="java"><code>public interface IExperienceGenerator {
     int calculerExperience(Personnage personnage);
 }</code></pre>
 </div>
 </div>
-<div id="implémentations-des-classes" class="section level3">
-<h3>Implémentations des classes :</h3>
-<div id="lootgenerator" class="section level4">
-<h4>LootGenerator :</h4>
+<div id="implémentations-des-classes" class="section level4">
+<h4>Implémentations des classes :</h4>
+<div id="lootgenerator" class="section level5">
+<h5>LootGenerator :</h5>
 <pre class="java"><code>import java.util.Random;
 
 public class LootGenerator implements ILootGenerator {
@@ -953,8 +950,8 @@ public class LootGenerator implements ILootGenerator {
     }
 }</code></pre>
 </div>
-<div id="combatgenerator" class="section level4">
-<h4>CombatGenerator :</h4>
+<div id="combatgenerator" class="section level5">
+<h5>CombatGenerator :</h5>
 <pre class="java"><code>public class CombatGenerator implements ICombatGenerator {
     private Random random;
 
@@ -995,8 +992,8 @@ public class LootGenerator implements ILootGenerator {
     }
 }</code></pre>
 </div>
-<div id="experiencegenerator" class="section level4">
-<h4>ExperienceGenerator :</h4>
+<div id="experiencegenerator" class="section level5">
+<h5>ExperienceGenerator :</h5>
 <pre class="java"><code>public class ExperienceGenerator implements IExperienceGenerator {
     @Override
     public int calculerExperience(Personnage personnage) {
@@ -1017,6 +1014,7 @@ public class LootGenerator implements ILootGenerator {
 <li>Implémentez une méthode gainExperience dans la classe Personnage pour ajouter de l’expérience au personnage. Cette méthode prendra en paramètre un entier représentant le nombre de points d’expérience à ajouter au personnage. Comparez l’ancienne valeur et la nouvelle, si le personnage a gagné un niveau, il pourra augmenter une compétence de son choix. [!NOTE] Pour detecter un changement de niveau, soit vous pouvez le faire de manière linéaire (tous les 100 points d’expérience par exemple) soit vous pouvez utiliser une formule mathématique pour calculer le niveau en fonction de l’expérience. Par exemple niveau = experience^0.3 qui donne les paliers suivants : &gt;- Niveau 2 : 10 &gt;- Niveau 3 : 38 &gt;- Niveau 4 : 101 &gt;- Niveau 5 : 213</li>
 </ol></li>
 </ol>
+</div>
 </div>
 </div>
 </div>
