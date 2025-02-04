@@ -2,6 +2,7 @@
 	import Code from '$lib/deck/code.svelte'
 	import Slide from '$lib/deck/slide.svelte'
 	import td1corrige from '$corriges/TD/TD1.pdf?url'
+	import td2corrige from '$corriges/TD/TD2.pdf?url'
 	import Composition from './Chapitres/Composition.svelte'
 	import { writable } from 'svelte/store'
 	import { browser } from '$app/environment'
@@ -25,8 +26,11 @@
 	<Slide>
 		<h2>TD</h2>
 		<ul>
-			<li><a href={$repoUrl + 'TD1/TD1.md'}>TD1</a> 
-				<span>/ <a href={td1corrige}>Corrigé</a></span>
+			<li><a href={$repoUrl + 'TD/TD1.md'}>TD1</a> 
+				<!-- <span>/ <a href={td1corrige}>Corrigé</a></span> -->
+			</li>
+			<li><a href={$repoUrl + 'TD/TD2.md'}>TD2</a> 
+				<!-- <span>/ <a href={td2corrige}>Corrigé</a></span> -->
 			</li>
 		</ul>
 	</Slide>
