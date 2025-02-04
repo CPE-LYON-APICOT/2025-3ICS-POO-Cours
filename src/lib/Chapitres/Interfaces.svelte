@@ -14,8 +14,8 @@
 </script>
 
 <Slide>
-	<Slide
-		><h3>L'héritage multiple</h3>
+	<Slide>
+		<h3>L'héritage multiple</h3>
 		<p>Comment hériter de deux classes ?</p>
 
 		<PlantUml>
@@ -28,7 +28,7 @@
 		</PlantUml>
 		<p class="fragment">
 			En Java, ce n'est pas possible !
-			<br /> En revanche, on peut utiliser l'interface pour simuler l'héritage multiple
+			<br /> En revanche, on peut utiliser une interface pour simuler l'héritage multiple.
 		</p>
 	</Slide>
 </Slide>
@@ -36,8 +36,7 @@
 	<h3>Les interfaces</h3>
 	<Slide>
 		<p>
-			Une interface est un type de référence qui est similaire à une classe abstraite qui ne
-			contient que des méthodes abstraites.
+			Une interface est un type de référence similaire à une classe abstraite qui ne contient que des méthodes abstraites.
 		</p>
 		<p>Une interface n'a pas de code "par défaut", seulement des signatures de méthodes.</p>
 		<Code
@@ -83,8 +82,8 @@
 		<p>
 			Une interface permet de mutualiser une implémentation entre des classes qui n’ont pas de lien
 			d’héritage.<br />
-			Si une classe implémente une inteface, ses classes dérivées héritent de cette implémentation,
-			<b>il est toutefois possible de surcharger cette implémentation</b>
+			Si une classe implémente une interface, ses classes dérivées héritent de cette implémentation,
+			mais il est toutefois possible de la surcharger.
 		</p>
 	</Slide>
 	
@@ -92,22 +91,22 @@
 		<h3>Comment choisir entre une classe abstraite et une interface ?</h3>
 		<ul class=" text-4xl">
 			<li>
-				<b>Classe abstraite</b> : Si fondamentalement vous pouvez dire "Un Dauphin est un Animal",
-				alors vous <i>pouvez</i> utiliser une classe abstraite.<br />
+				<b>Classe abstraite</b> : Si, fondamentalement, on peut dire "Un Dauphin est un Animal",
+				alors, vous <i>pouvez</i> utiliser une classe abstraite.<br />
 			</li>
 			<li>
-				<b>Interface</b> : Si il est plus juste de dire "Un Dauphin peut nager", alors vous
+				<b>Interface</b> : S'il est plus juste de dire "Un Dauphin peut nager", alors vous
 				<i>devriez</i>
 				utiliser une interface.
 				<ul>
 					<li>
-						Si quelque chose qui n'aurait rien à voir avec vos animaux pouvait nager utilisez une
+						Si quelque chose qui n'aurait rien à voir avec vos animaux pouvait nager, utilisez une
 						interface.<br />
-						Par exemple un avion et un oiseau peuvent voler, mais ils n'ont rien à voir l'un avec l'autre.
+						Par exemple, un avion et un oiseau peuvent voler, mais ils n'ont rien à voir l'un avec l'autre.
 					</li>
 					<li>
-						Sinon, utilisez une interface si vous sentez qu'une classe fille pourrait avoir besoin
-						d'hériter de plusieurs classes, prévoyez plutôt une interface.
+						Sinon, prévoyez plutôt une interface si vous pensez qu'une classe fille pourrait avoir besoin
+						d'hériter de plusieurs classes.
 					</li>
 				</ul>
 			</li>
@@ -182,13 +181,13 @@
 	
 	<Slide>
 		<h3>Préambule au polymorphisme</h3>
-        <p>Vos méthodes peuvent prendre en paramètre une interface, ce qui permet de passer n'importe quel objet qui implémente cette interface.</p>
+        <p>Vos méthodes peuvent prendre en paramètre une interface, ce qui permet de passer n'importe quel objet qui l'implémente.</p>
         <Code class=" highlighter language-java"
             >{`
             public class BassinAquatique {
                 public void faireNager(Nageur nageur) {
                     nageur.nager();
-                    //Ici, qu'ils soient un humain, un dauphin ou un crocodile, 
+                    // Ici, qu'ils soient un humain, un dauphin ou un crocodile, 
                     // les instances de ces classes peuvent nager 
                     // peu importe que ce soit des mammifères ou des reptiles
                 }
@@ -223,9 +222,7 @@
 		<h3>Héritage d’interface</h3>
 
 		<p>
-			Comme chaque interface introduit un nouveau type, il est possible de contrôler grâce au
-			mot-clé <code>instanceof</code> qu’une variable, un paramètre ou un attribut est bien une instance
-			compatible avec cette interface.
+			Comme chaque interface introduit un nouveau type, il est possible de contrôler, grâce au mot-clé <code>instanceof</code>, qu’une variable, un paramètre ou un attribut est bien une instance compatible avec cette interface.
 		</p>
 		<Code className="highlighter language-java"
 			>{`
@@ -246,7 +243,7 @@
 		<h3>Les interfaces marqueurs</h3>
 		<p>
 			Une interface sans méthode est appelée une interface marqueur. <br/>
-            Elle est utilisée pour "Tagguer" une classe.
+            Elle est utilisée pour étiqueter une classe.
 		</p>
            <p>On les utilise ainsi </p>
         <Code className="highlighter language-java"
@@ -256,7 +253,7 @@
             ...
             void logguerDansUnFichier(Object p) {
                 if (p instanceof IConfidential) {
-                    return; //On ne loggue pas les informations confidentielles
+                    return; // On ne loggue pas les informations confidentielles
                 }
             }
             `}</Code>
@@ -266,20 +263,17 @@
 	<Slide>
         <h3>Conventions de nommage</h3>
         <ul>
-            <li> Les interfaces sont nommées avec un nom qui commence par "I" suivi d'un nom.</li>
-            <li> Le nom est un adjectif ou un nom qui décrit un comportement.</li>
-            <li> Exemple :
+            <li>Les interfaces sont nommées avec un nom qui commence par "I" suivi d'un nom.</li>
+            <li>Le nom est un adjectif ou un nom qui décrit un comportement.</li>
+            <li>Exemple :
                 <ul>
                     <li>IVolant</li>
                     <li>IConfidentiel</li>
                     <li><s>INageur</s></li>
                     <li><s>Bateau</s></li>
                     <li><s>Vitesse</s></li>
-
                 </ul>
             </li>
-
-
         </ul>
     </Slide>
 </Slide>

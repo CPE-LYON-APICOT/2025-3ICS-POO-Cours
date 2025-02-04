@@ -50,14 +50,14 @@
 			<dd>
 				<p>
 					Cet environnement fournit uniquement les outils nécessaires à l’exécution de programmes
-					Java. Il fournit entre-autres la machine virtuelle Java.
+					Java. Il fournit entre autres la machine virtuelle Java.
 				</p>
 			</dd>
 			<dt>JDK - Java Development Kit</dt>
 			<dd>
 				<p>
 					Cet environnement fournit tous les outils nécessaires à l’exécution mais aussi au
-					développement de programmes Java. Il fournit entre-autres la machine virtuelle Java et la
+					développement de programmes Java. Il fournit entre autres la machine virtuelle Java et le
 					compilateur.
 				</p>
 			</dd>
@@ -69,7 +69,7 @@
 	<h4>Caractéristiques</h4>
 	<div class="flex flex-col justify-center">
 		<ul class="r-strech">
-			<li>S'inspire mais se débarrasse des complexités du C (pointeurs, allocation mémoire,..)</li>
+			<li>S'inspire mais se débarrasse des complexités du C (pointeurs, allocation mémoire, etc.)</li>
 			<li>Orienté objet !</li>
 			<li>Gestion automatique de la mémoire</li>
 			<li>
@@ -82,7 +82,7 @@
 					i = "bonjour"; // ERREUR : on tente d'affecter une chaîne de caractères`}
 				</Code>
 			</li>
-			<li>Bibliothèque de classes et de packages très riche (graphismes, encryption, …)</li>
+			<li>Bibliothèque de classes et de packages très riche (graphismes, encryption, etc.)</li>
 			<li>Polymorphisme et introspection</li>
 		</ul>
 	</div>
@@ -134,7 +134,7 @@ les objets : les variables contiennent :
 			<li>
 				Objets (instances de classes)
 				<ul>
-					<li><code>String, Integer, Float, Double, Boolean, Character, …</code></li>
+					<li><code>String, Integer, Float, Double, Boolean, Character, etc.</code></li>
 				</ul>
 			</li>
 		</ul>
@@ -147,7 +147,7 @@ les objets : les variables contiennent :
 	<ul>
 		<li>Ce n'est pas un type primitif, c'est une classe (d'où la présence de la majuscule)</li>
 		<li>
-			Comme c'est une classe, on utilise le mot-clef new pour créer un objet, on parle d'une
+			Comme c'est une classe, on utilise le mot-clé new pour créer un objet, on parle d'une
 			instance de classe de type String
 			<Code
 				>{`
@@ -156,9 +156,9 @@ les objets : les variables contiennent :
 				`}
 			</Code>
 		</li>
-		<li>la chaîne de caractères se met entre guillemets</li>
+		<li>La chaîne de caractères se met entre guillemets</li>
 		<li>
-			Exceptionnellement, il est possible de déclarer une chaîne de caractère sans utiliser <code
+			Exceptionnellement, il est possible de déclarer une chaîne de caractères sans utiliser <code
 				class="text-purple-400">new</code
 			>
 			<Code
@@ -247,7 +247,7 @@ public class Main {
 	</div>
 </Slide>
 <Slide>
-	<h3>Syntaxe</h3>
+	<h3>Syntaxe</h4>
 	<h4>Les structures de contrôle</h4>
 	<h5>Boucle</h5>
 	<div class="flex flex-col justify-center">
@@ -362,7 +362,7 @@ import java.util.Scanner ;
 public class Main {
 	public static void main(String[] args) {
 		int i;
-		System.out.println("Entez un entier: ");
+		System.out.println("Entrez un entier: ");
 		Scanner clavier = new Scanner(System.in);
 		i = clavier.nextInt();
 		System.out.println("Vous avez entré : "+i);

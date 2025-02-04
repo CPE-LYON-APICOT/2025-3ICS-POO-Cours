@@ -6,20 +6,19 @@
 	<h3>L'héritage</h3>
 	<Slide>
 		<p>
-			En POO, l'héritage est un mécanisme qui permet de créer une nouvelle classe à partir d'une
-			classe existante.
+			En POO, l'héritage est un mécanisme qui permet de créer une nouvelle classe à partir d'une classe existante.
 		</p>
 	</Slide>
 	<Slide>
 		<p>
 			La classe existante est appelée <span class="text-important">classe mère</span> ou
-			<span class="text-important">classe de base</span>
+			<span class="text-important">classe de base</span>.
 		</p>
 	</Slide>
 	<Slide>
 		<p>
 			La nouvelle classe est appelée <span class="text-important">classe fille</span> ou
-			<span class="text-important">classe dérivée</span>
+			<span class="text-important">classe dérivée</span>.
 		</p>
 		<p>La classe fille peut aussi ajouter des attributs et des méthodes qui lui sont propres.</p>
 		<Code>
@@ -36,7 +35,7 @@
 		`}
 		</Code>
 		<p>
-			On utilise le mot clé <code class="code text-important">extends</code> pour hériter d'une classe
+			On utilise le mot-clé <code class="code text-important">extends</code> pour hériter d'une classe.
 		</p>
 	</Slide>
 
@@ -45,19 +44,21 @@
 			La classe fille hérite des attributs et des méthodes de la classe mère. Elle peut aussi
 			redéfinir les méthodes de la classe mère.
 		</p>
-		<p>Rédéfinir un méthode s'appelle <span class="text-important">surcharge</span></p>
+		<p>Redéfinir une méthode s'appelle <span class="text-important">redéfinition</span>.</p>
 	</Slide>
 	<Slide>
 		<p>Pourquoi redéfinir une méthode ?</p>
 		<ul>
-			<li>Adapter le comportement de la méthode à la classe fille</li>
-			<li>Modifier le comportement de la méthode</li>
+			<li>Adapter le comportement de la méthode à la classe fille.</li>
+			<li>Modifier le comportement de la méthode.</li>
 		</ul>
 	</Slide>
 	<Slide>
-		<p>Ici, nous avons une classe Animal et une classe Chien qui hérite de la classe Animal</p>
 		<p>
-			On veut qu'un chien fasse "Wouaf", un animal, si ce n'est pas précisé fait "Je suis un animal"
+			Ici, nous avons une classe Animal et une classe Chien qui hérite de la classe Animal.
+		</p>
+		<p>
+			On veut qu'un chien fasse "Wouaf" et qu'un animal, si ce n'est pas précisé, fasse "Je suis un animal".
 		</p>
 		<Code>
 			{`
@@ -71,11 +72,11 @@ class Chien extends Animal {
 	void crier(){
 		print("Wouaf wouaf");
 	}
-}`}</Code
-		>
+}`}
+		</Code>
 	</Slide>
 	<Slide>
-		<p>On peut aussi appeler la méthode de la classe mère</p>
+		<p>On peut aussi appeler la méthode de la classe mère.</p>
 		<Code lines="8|1-12">
 			{`
 class Animal {
@@ -96,7 +97,7 @@ class Animal {
 	<Slide>
 		<h3>Les classes abstraites</h3>
 		<p>
-			Une classe abstraite est une classe qui ne peut pas être instanciée. Elle est destinée à être
+			Une classe abstraite est une classe qui ne peut pas être instanciée et qui est destinée à être
 			héritée par d'autres classes.
 		</p>
 		<p>
@@ -107,9 +108,9 @@ class Animal {
 	<Slide>
 		<h3>Pourquoi utiliser des classes abstraites ?</h3>
 		<ul>
-			<li>Pour définir un comportement commun à plusieurs classes</li>
-			<li>Pour forcer les classes filles à implémenter certaines méthodes</li>
-			<li>Surtout, il n'y a parfois aucun sens à instancier une classe</li>
+			<li>Pour définir un comportement commun à plusieurs classes.</li>
+			<li>Pour forcer les classes filles à implémenter certaines méthodes.</li>
+			<li>Surtout, il n'a parfois aucun sens d'instancier une classe.</li>
 		</ul>
 	</Slide>
 	<Slide>
@@ -162,11 +163,10 @@ class Animal {
 		</p>
 		<p>
 			Les classes <code class="code text-important">Cercle</code> et
-			<code class="code text-important">Triangle</code>
-			héritent de <code class="code text-important">Forme</code> et implémentent la méthode
+			<code class="code text-important">Triangle</code> héritent de <code class="code text-important">Forme</code> et implémentent la méthode
 			<code class="code text-important">calculerSurface</code>.
 		</p>
-		<p>Comment voudriez-vous coder la surface de la classe Forme ? C'est impossible !</p>
+		<p>Comment voudriez-vous coder la surface d'une forme ? C'est impossible !</p>
 	</Slide>
 
 

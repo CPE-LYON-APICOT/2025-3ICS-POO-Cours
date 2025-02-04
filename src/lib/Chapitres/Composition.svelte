@@ -8,17 +8,17 @@
 	<Slide>
 		<p>
 			La composition permet de créer des objets complexes en combinant des objets plus simples.
-			C'est comme assembler des pièces de Lego pour construire une structure plus grande.
+			C'est comme assembler des briques Lego pour construire une structure plus grande.
 		</p>
 		<p>
-			En POO, la composition est le principe d'avoir des instances de classes comme attributs d'une
-			autre classe. Ce n'est pas sans rappeler la notion de clé étrangère en base de données.
+			En POO, la composition consiste à avoir des instances de classes en tant qu'attributs d'une autre classe.
+			Cela rappelle la notion de clé étrangère en base de données.
 		</p>
 	</Slide>
 	<Slide>
 		<p>
-			Par exemple, une voiture est composée de plusieurs parties : un moteur, des roues, un châssis,
-			etc. Chaque partie peut être une instance d'une classe.
+			Par exemple, une voiture est composée de plusieurs parties : un moteur, des roues, un châssis, etc.
+			Chaque partie peut être une instance d'une classe.
 		</p>
 		<PlantUml>
 			{`
@@ -38,36 +38,30 @@
 	`}
 		</PlantUml>
 		<p>
-			La composition favorise la réutilisation du code et rend le système plus flexible. Par
-			exemple, on peut remplacer le moteur d'une voiture sans modifier la classe Voiture.
+			La composition favorise la réutilisation du code et rend le système plus flexible. Par exemple, on peut remplacer le moteur d'une voiture sans modifier la classe Voiture.
 		</p>
 	</Slide>
 
 	<Slide>
 		<div class="r-fit-text">
 			<p>
-				Un des intérêts de la programmation objet réside dans les relations que ces objets
-				entretiennent les uns avec les autres. Ces relations sont construites par les développeurs
-				et constituent ce que l’on appelle l’architecture d’une application. Il existe deux
-				relations fondamentales en programmation objet :
+				L'un des intérêts de la programmation orientée objet réside dans les relations que les objets entretiennent entre eux.
+				Ces relations, construites par les développeurs, constituent l'architecture d'une application.
+				Il existe deux relations fondamentales en programmation objet :
 			</p>
 			<dl class="simple">
 				<dt><strong>est un</strong> (<em>is-a</em>)</dt>
 				<dd>
 					<p>
-						Cette relation permet de créer une chaîne de relation d’identité entre des classes. Elle
-						indique qu’une classe peut être assimilée à une autre classe qui correspond à une notion
-						plus abstraite ou plus générale. On parle <span class="text-important">d’héritage</span>
-						pour désigner le mécanisme qui permet d’implémenter ce type de relation.
+						Cette relation permet d'exprimer qu'une classe peut être assimilée à une autre classe, représentant une notion plus abstraite ou plus générale.
+						On parle d'<span class="text-important">héritage</span> pour désigner ce mécanisme.
 					</p>
 				</dd>
 				<dt><strong>a un</strong> (<em>has-a</em>)</dt>
 				<dd>
 					<p>
-						Cette relation permet de créer une relation de dépendance d’une classe envers une autre.
-						Une classe a besoin des services d’une autre classe pour réaliser sa fonction. On parle
-						également de relation de <span class="text-important">composition</span> pour désigner ce
-						type de relation.
+						Cette relation permet d'exprimer qu'une classe dépend des services d'une autre.
+						On parle également de relation de <span class="text-important">composition</span> pour désigner ce type de relation.
 					</p>
 				</dd>
 			</dl>
@@ -126,19 +120,18 @@
 		</div>
 	</Slide>
 	<Slide>
-		<p>Normalement, le maître n'est pas censé avoir un comportement propre à un animal.</p>
 		<p>
-			Le maître possède un animal, mais il ne semble pas possible de savoir de quel animal il s'agit
+			Normalement, le maître n'est pas censé adopter le comportement propre à un animal.
+			Il possède un animal, mais il n'est pas possible de déterminer de quel type d'animal il s'agit.
+			Chaque langage propose un moyen de tester le type d'un objet.
 		</p>
-		<p>Chaque langage propose une manière de tester le type d'un objet</p>
 	</Slide>
 	<Slide>
-		<p>Par exemple, on veut promener l'animal uniquement si c'est un chien</p>
+		<p>Par exemple, on souhaite promener l'animal uniquement s'il s'agit d'un chien.</p>
 		<p>
-			Si l'on veut faire ça propre, on devrait créer un attribut <code>animalPromenable</code> dans la
-			classe animal
+			Si l'on veut faire cela de manière propre, on devrait créer un attribut <code>animalPromenable</code> dans la classe Animal.
 		</p>
-		<p>Toutefois, la POO est un concept, pas une règle absolue</p>
+		<p>Toutefois, la POO est un concept, pas une règle absolue.</p>
 		<p>Il est possible de tester si un Animal est un Chien depuis la classe maître</p>
 	</Slide>
 	<Slide className="scale-90">

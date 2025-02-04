@@ -11,7 +11,7 @@
 		<h2>
 			La <span data-fragment-index="1" class="fragment highlight-red">Programmation</span> Orientée Objet
 		</h2>
-		<p data-fragment-index="1" class="fragment">La programmation c'est manipuler des données...</p>
+		<p data-fragment-index="1" class="fragment">La programmation, c'est manipuler des données...</p>
 		<p data-fragment-index="2" class="fragment">
 			<i>Comment structurer ces données et les traitements associés ?</i>
 		</p>
