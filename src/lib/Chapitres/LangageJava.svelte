@@ -247,7 +247,7 @@ public class Main {
 	</div>
 </Slide>
 <Slide>
-	<h3>Syntaxe</h4>
+	<h3>Syntaxe</h3>
 	<h4>Les structures de contrôle</h4>
 	<h5>Boucle</h5>
 	<div class="flex flex-col justify-center">

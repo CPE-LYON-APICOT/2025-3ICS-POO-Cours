@@ -8,6 +8,7 @@
 	import Gnralits from './Chapitres/Généralités.svelte'
 	import Exercices from './Exercices.svelte'
 	import LangageJava from './Chapitres/LangageJava.svelte'
+
 </script>
 
 <Slide animate={true}>
@@ -74,5 +75,5 @@
 
 <Exercices/>
 <Slide id="annexes" >
-	<LangageJava />
-</Slide>
+	<h1>Annexes</h1>
+</Slide><LangageJava />
