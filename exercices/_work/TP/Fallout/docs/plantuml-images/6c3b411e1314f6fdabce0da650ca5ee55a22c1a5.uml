@@ -1,0 +1,37 @@
+@startuml
+
+abstract class Personnage {
+       - nom: String
+    - pointsDeVie: int
+    - competences: EnumMap
+    + Personnage(nom: String)
+    + abstract attaqueSpeciale(): void
+    + String getNom()
+    + int getPointsDeVie()
+    + void augmenterCompetence(Competence, int)
+    + int getNiveauCompetence(Competence)
+    + void afficherCompetences()
+    - void initialiserCompetences()
+}
+
+class Mercenaire {
+    + Mercenaire(nom: String)
+    + attaqueSpeciale(): void
+}
+
+class SuperMutant {
+    + SuperMutant(nom: String)
+    + attaqueSpeciale(): void
+}
+
+
+class Scientifique {
+    + Scientifique(nom: String)
+    + attaqueSpeciale(): void
+}
+
+Personnage <|-- Mercenaire
+Personnage <|-- SuperMutant
+Personnage <|-- Scientifique
+
+@enduml

@@ -167,9 +167,9 @@ class Personne {
 		</div>
 	</Slide>
 	<Slide>
-		<h3 class="uppercase">Comment génraliser</h3>
+		<h3 class="uppercase">Comment généraliser</h3>
 		<p>
-			En POO, génraliser s'appelle <span class="text-important"
+			En POO, généraliser s'appelle <span class="text-important"
 				>abstraire, faire une abstraction</span
 			>
 		</p>
@@ -187,7 +187,7 @@ class Personne {
 		</p>
 	</Slide>
 	<Slide>
-		<h3 class="uppercase">Comment génraliser</h3>
+		<h3 class="uppercase">Comment généraliser</h3>
 		<div class="flex flex-row justify-center items-baseline">
 			<PlantUml>
 				{`
@@ -275,7 +275,7 @@ class Personne {
 		</div>
 	</Slide>
 	<Slide data_background_color="#00353F">
-		<h3 class="uppercase">Comment génraliser</h3>
+		<h3 class="uppercase">Comment généraliser</h3>
 
 		<p>
 			L'opération que l'on vient de voir s'appelle un <i>refactoring</i>, cela nous rends fier
@@ -291,7 +291,7 @@ class Personne {
 		</p>
 	</Slide>
 	<Slide data_background_color="#00353F">
-		<h3 class="uppercase">Comment génraliser</h3>
+		<h3 class="uppercase">Comment généraliser</h3>
 		<p>Un <i>bon</i> ingénieur logiciel sait jusqu'à quel niveau il convient d'abstraire</p>
 		<ul>
 			<li>Si vous ne le faites pas, vous devez tout casser pour ajouter une fonctionnalité</li>

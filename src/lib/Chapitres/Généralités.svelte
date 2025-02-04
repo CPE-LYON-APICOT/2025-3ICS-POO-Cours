@@ -70,4 +70,26 @@
 			Nous verrons plus tard l'intérêt de ces modificateurs d'accès, ne soyez pas surpris si vous ne les comprenez pas tout de suite.
 		</p>
 	</Slide>
+	<Slide>
+		<h3>Gestion des erreurs</h3>
+			<p>La gestion des exceptions permet de gérer les erreurs qui peuvent survenir lors de l'exécution d'un programme.</p>
+			<p>En Java, on utilise les blocs <code>try</code>, <code>catch</code>, et <code>finally</code> pour gérer les exceptions.</p>
+			<Code>
+				{`
+				try {
+					// Code qui peut générer une exception
+					int a = 10/0;
+					// ou, on peut générer une exception personnalisée
+					throw new Exception("Erreur personnalisée");
+				} catch (Exception e) {
+					// Code pour gérer l'exception
+					System.out.println("Erreur : " + e.getMessage());
+				} finally {
+					// Code qui sera exécuté qu'il y ait une exception ou non
+				}
+				`}
+			</Code>
+			
+
+	</Slide>
 </Slide>

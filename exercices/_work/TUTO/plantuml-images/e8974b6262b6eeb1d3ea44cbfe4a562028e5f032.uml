@@ -1,0 +1,9 @@
+@startuml
+class Mère{
+  nom: String
+  prenom: String
+}
+class Fille extends Mère{
+  age: int
+}
+@enduml

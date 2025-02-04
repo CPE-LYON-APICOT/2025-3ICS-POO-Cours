@@ -1,5 +1,12 @@
 ---
 title: "TD2"
+produce:
+    html: 
+        remove_answers: false
+    pdf: 
+        remove_answers: false
+    md: 
+        remove_answers: true
 ---
 
 ## Classes et visibilité

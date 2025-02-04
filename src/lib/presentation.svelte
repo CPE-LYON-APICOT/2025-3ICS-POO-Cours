@@ -6,17 +6,16 @@
 	import Interfaces from '$lib/Chapitres/Interfaces.svelte'
 	import Encapsulation from '$lib/Chapitres/Encapsulation.svelte'
 	import Gnralits from './Chapitres/Généralités.svelte'
-	import Code from './deck/code.svelte'
-	import Reveal from 'reveal.js'
-	import Gpt from './deck/gpt.svelte'
 	import Exercices from './Exercices.svelte'
+	import LangageJava from './Chapitres/LangageJava.svelte'
 </script>
 
 <Slide animate={true}>
 	<h1 class="capitalize">{import.meta.env.VITE_PAGE_TITLE}</h1>
 	<a class="print:hidden" href="/?print-pdf" target="_blank">Version imprimable 🖨</a><br />
 	<a class="print:hidden" href="/?view=scroll" target="_blank">Version défilable</a><br/>
-	<a class="print:hidden" href="#/exercices" >Lien vers les TP/TD</a>
+	<a class="print:hidden" href="#/exercices" >Lien vers les TP/TD</a><br/>
+	<a class="print:hidden" href="#/annexes" >Annexes</a>
 </Slide>
 
 <Slide data_background_color="#00353F">
@@ -48,7 +47,8 @@
 	</Slide>
 	<Slide>
 		<h2>Mise en place des TDs/TPs</h2>
-		<p>Les TD</p>
+		<p>Les TD et TP sont à commit régulièrement sur votre dépôt git (voir démonstration)</p>
+		<p>Seul le projet est à réaliser en binôme</p>
 	</Slide>
 </Slide>
 
@@ -73,3 +73,6 @@
 
 
 <Exercices/>
+<Slide id="annexes" >
+	<LangageJava />
+</Slide>

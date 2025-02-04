@@ -1,0 +1,54 @@
+---
+title: PlantUML
+produce:
+    html: 
+        remove_answers: false
+    md: 
+        remove_answers: false
+---
+# PlantUML
+
+Dans les exercices proposés, il est parfois demander de réaliser des diagrammes UML.
+
+Il y a trois solutions : 
+
+1. Utiliser VS Code Desktop, car la version Web ne permet pas de générer les diagrammes UML.  
+  - Vous devez installer VS Code en local et l'extension PlantUML
+    - https://marketplace.visualstudio.com/items?itemName=jebbs.plantuml
+  - Dans votre fichier, vous pouvez utiliser la commande suivante pour générer le diagramme : 
+    (Sans les `<pre>` et `</pre>`)
+    <pre>
+    
+    ```plantuml
+      class Mère{
+        nom: String
+        prenom: String
+      }
+      class Fille extends Mère{
+        age: int
+      }
+    ```
+    </pre>
+  - Ce qui vous donnera : 
+
+  ```plantuml
+  class Mère{
+    nom: String
+    prenom: String
+  }
+  class Fille extends Mère{
+    age: int
+  }
+  ```
+  
+2. Vous pouvez utiliser un éditeur en ligne : https://www.planttext.com/
+  - Ensuite vous pouvez copier le lien ou il est écrit "PNG" et le coller dans votre fichier ainsi :
+  (Sans les `<pre>` et `</pre>`)
+  <pre>
+  ![Diagramme](https://uml.planttext.com/plantuml/svg/Iyv9B2vMy3syeYYrcfTB0GZoydEj589BYZBpqY421KMfQ6Ar828PhDCjCoSdLI6reYGrBmNLdCJqL2k5pBmIi0O0)
+  </pre>
+
+3. Utilisez Draw.io ou autre et collez l'image comme pour l'exemple 2.
+  - Je vous recommande toutefois d'apprendre à utiliser PlantUML
+
+

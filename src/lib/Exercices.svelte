@@ -3,7 +3,9 @@
 	import Slide from '$lib/deck/slide.svelte'
 	import td1corrige from '$corriges/TD/TD1.pdf?url'
 	import td2corrige from '$corriges/TD/TD2.pdf?url'
-	import Composition from './Chapitres/Composition.svelte'
+	import tp1 from '$enonces/TP/Fallout/docs/TP1.html?url'
+	import configEnv  from '$enonces/TUTO/Mise-en-place-env.html?url'
+	import plantumlTuto from '$enonces/TUTO/PlantUML.html?url'
 	import { writable } from 'svelte/store'
 	import { browser } from '$app/environment'
 	export const repoUrl = writable((browser && localStorage.getItem('repoUrl')) || null)
@@ -14,30 +16,41 @@
 
 <Slide id="exercices">
 	<Slide>
-		<h3>Configuration</h3>
-		<p>Collez l'URL de votre répo Git</p>
+		<h3>Configuration TD</h3>
+		<a target="_blank" href="https://classroom.github.com/a/FKWh2cOe">Clonez le dépôt</a> <br />
+		<p>Puis collez l'URL de votre répo Git</p>
 		<input
 			class="w-full text-accent-950 text-lg z-50 mb-16"
 			type="text"
 			placeholder="URL du dépôt git"
+			on:input={(e) => repoUrl.set((e.currentTarget.value.trimEnd()+"/").replace("github.com", 'github.dev'))}
 			bind:value={$repoUrl}
 		/>
 	</Slide>
 	<Slide>
 		<h2>TD</h2>
 		<ul>
-			<li><a href={$repoUrl + 'TD/TD1.md'}>TD1</a> 
+			<li><a target="_blank" href={$repoUrl + 'blob/main/TD/TD1.md'}>TD1</a> 
 				<!-- <span>/ <a href={td1corrige}>Corrigé</a></span> -->
 			</li>
-			<li><a href={$repoUrl + 'TD/TD2.md'}>TD2</a> 
+			<li><a target="_blank" href={$repoUrl + 'blob/main/TD/TD2.md'}>TD2</a> 
 				<!-- <span>/ <a href={td2corrige}>Corrigé</a></span> -->
 			</li>
+			<li><a target="_blank" href={plantumlTuto}>Tuto PlantUML</a>
+			</li>
 		</ul>
+		
+	</Slide>
+	<Slide>
+		<h3>Configuration TP</h3>
+		<a target="_blank" href={configEnv}>Configurez votre poste</a> <br />
 	</Slide>
 	<Slide>
 		<h2>TP</h2>
 		<ul>
-			<li><a href={$repoUrl + 'TP1/TP1.md'}>TP1</a></li>
+			<li><a target="_blank" href={tp1}>TP1</a>
+			<span>/ <a target="_blank" href="https://classroom.github.com/a/3pWZu8yR">Clonez le dépot</a></span>
+			</li>
 		</ul>
 	</Slide>
 </Slide>

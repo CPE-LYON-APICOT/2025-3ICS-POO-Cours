@@ -1,0 +1,99 @@
+---
+title: "Mise en place de l'environnement de développement Java sous Windows"
+produce:
+    html: 
+        remove_answers: false
+    md: 
+        remove_answers: false
+---
+
+# Mise en place de l'environnement de développement Java sous Windows
+
+> # RAPPEL :
+> # Réalisez d'abord les TDs et ensuite les TPs
+
+## Prérequis
+Avant de commencer, assurez-vous d'avoir les droits d'administrateur sur votre machine.
+
+## Installation de Chocolatey
+Si Chocolatey n'est pas déjà installé, suivez les étapes ci-dessous pour l'installer :
+
+1. Ouvrez PowerShell en mode administrateur.
+2. Exécutez la commande suivante pour installer Chocolatey :
+    ```powershell
+    Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))
+    ```
+
+## Installation des outils de développement
+
+### Visual Studio Code
+Pour installer Visual Studio Code, exécutez la commande suivante :
+```powershell
+choco install vscode -y
+```
+
+### Java Development Kit (JDK)
+Pour installer le JDK, exécutez la commande suivante :
+```powershell
+choco install openjdk -y
+```
+
+### Gradle
+Pour installer Gradle, exécutez la commande suivante :
+```powershell
+choco install gradle -y
+```
+
+### Git
+Pour installer Git, exécutez la commande suivante :
+```powershell
+choco install git -y
+```
+
+### Maven (optionnel)
+Pour installer Maven, exécutez la commande suivante :
+```powershell
+choco install maven -y
+```
+
+## Vérification des installations
+Après avoir installé les outils, vous pouvez vérifier les installations en exécutant les commandes suivantes :
+
+- Visual Studio Code :
+    ```powershell
+    code --version
+    ```
+
+- Java :
+    ```powershell
+    java -version
+    ```
+
+- Gradle :
+    ```powershell
+    gradle -v
+    ```
+
+- Git :
+    ```powershell
+    git --version
+    ```
+
+- Maven (si installé) :
+    ```powershell
+    mvn -v
+    ```
+
+Vous avez maintenant un environnement de développement Java complet installé sur votre machine Windows.
+
+## Création d'un projet 
+
+Pour initialiser un projet en ligne de commande utilisez gradle init : 
+
+```powershell
+mkdir MonProjet
+cd MonProjet
+gradle init --type java-application --dsl kotlin --test-framework junit --use-defaults --package  "cpe.$($env:USERNAME)" 
+code .                                    
+```
+

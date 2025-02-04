@@ -1,5 +1,12 @@
 ---
 title: "TD1"
+produce:
+    html: 
+        remove_answers: false
+    pdf: 
+        remove_answers: false
+    md: 
+        remove_answers: true
 ---
 # TD1 : Programmation Orientée Objet (POO)
 
