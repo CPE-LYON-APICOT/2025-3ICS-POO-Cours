@@ -5,8 +5,7 @@ function remove_blockquotes(blocks)
   for _, block in ipairs(blocks) do
     if block.t == "RawBlock" and block.text:match("<article>") then
       inside_blockquote = true
-      table.insert(result, pandoc.RawBlock("html", "<blockquote>"))
-      table.insert(result, "Réponse : ")
+      table.insert(result, pandoc.BlockQuote("Réponse :"))
     end
 
     if not inside_blockquote then
@@ -15,7 +14,6 @@ function remove_blockquotes(blocks)
 
     if inside_blockquote and block.t == "RawBlock" and block.text:match("</article>") then
       inside_blockquote = false
-      table.insert(result, pandoc.RawBlock("html", "</blockquote>"))
     end
   end
 
@@ -24,7 +22,8 @@ end
 
 -- Applying the filter to the Pandoc document
 function Pandoc(doc)
-  if FORMAT:match 'md' then
+  print(FORMAT)
+  if not FORMAT:match 'latex' then
     doc.blocks = remove_blockquotes(doc.blocks)
   end
   return doc

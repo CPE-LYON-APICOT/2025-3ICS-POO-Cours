@@ -1,0 +1,13 @@
+@startuml
+class Ordinateur {
+}
+
+Ordinateur <|-- Serveur
+Ordinateur <|-- Tour
+Ordinateur <|-- Portable
+Ordinateur <|-- Telephone
+
+Serveur <|-- Mainframe
+Portable <|-- Ultraportable
+
+@enduml

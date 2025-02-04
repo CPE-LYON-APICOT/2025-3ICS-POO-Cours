@@ -1,0 +1,9 @@
+@startuml
+class Vehicule {
+}
+
+Vehicule <|-- Bateau
+Vehicule <|-- Voiture
+Vehicule <|-- Avion
+
+@enduml

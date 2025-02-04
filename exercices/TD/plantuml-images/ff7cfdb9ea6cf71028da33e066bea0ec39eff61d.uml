@@ -1,0 +1,26 @@
+@startuml
+left to right direction
+class A {
+    - b: B
+}
+
+class B {
+    - c: C
+    + B(c: C)
+}
+
+class C {
+    - i: int
+    - j: int
+    + C(c: C)
+}
+
+class D {
+    + test()
+}
+
+A "1" -- "1" B
+B "1" -- "1" C
+D ..> A
+
+@enduml

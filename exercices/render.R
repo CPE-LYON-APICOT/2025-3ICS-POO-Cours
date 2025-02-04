@@ -45,7 +45,7 @@ for (file in rmd_files) {
   # Render to Markdown in the 'work' folder with Lua filter
   try({
     render(file,
-      output_format = md_document(pandoc_args = c("--lua-filter", lua_filter, "--filter", "pandoc-plantuml")),
+      output_format = md_document(variant = "markdown", pandoc_args = c("--lua-filter", lua_filter, "--filter", "pandoc-plantuml")),
       output_dir = output_md_dir
     )
     cat("Rendered to Markdown:", file, "\n")

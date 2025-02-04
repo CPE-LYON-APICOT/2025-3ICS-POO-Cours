@@ -1,0 +1,9 @@
+@startuml
+class Peripherique {
+}
+
+Peripherique <|-- Souris
+Peripherique <|-- Clavier
+Peripherique <|-- Ecran
+
+@enduml

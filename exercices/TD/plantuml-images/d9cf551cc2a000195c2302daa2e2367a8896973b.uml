@@ -1,0 +1,20 @@
+@startuml
+class Comestible {
+}
+
+Personne <|-- Homme
+Personne <|-- Femme
+Personne <|-- Enfant
+
+Animal <|-- Domestique
+Animal <|-- Sauvage
+
+Domestique <|-- Chien
+Domestique <|-- Chat
+Sauvage <|-- Rat
+Chien <|-- Dalmatien
+
+Sauvage <|-- Raccoon
+Sauvage <|-- Ours
+
+@enduml
