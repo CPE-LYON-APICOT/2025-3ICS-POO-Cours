@@ -432,8 +432,28 @@ public class PersonnageRPG {
 </blockquote>
 <p><strong>Conseils :</strong> - Familiarisez-vous avec les points d’arrêt si vous les découvrez. - <a href="https://code.visualstudio.com/docs/java/java-debugging">Run and Debug Java in Visual Studio Code</a></p>
 <ol start="6" style="list-style-type: decimal">
-<li>Faites en sorte que l’utilisateur soit invité à saisir un nom à son personnage tant que la longueur de la variable nom est inférieure à 3.</li>
+<li><p>Faites en sorte que l’utilisateur soit invité à saisir un nom à son personnage tant que la longueur de la variable nom est inférieure à 3.</p></li>
+<li><p>Implémenter un test unitaire :</p></li>
 </ol>
+<p>Modifiez le fichier <code>src/test/java/cpe/[votrenom]/AppTest.java</code></p>
+<pre class="java"><code>public class AppTest {
+    @Test public void personnageName() {
+        try {
+            new PersonnageRPG(&quot;Jo&quot;);
+        } catch (IllegalArgumentException e) {
+            System.err.println(e.getMessage());
+            System.out.println(&quot;Test réussi&quot;);
+            assertEquals(&quot;Le nom doit contenir au moins 3 caractères&quot;, e.getMessage());
+        } 
+       new PersonnageRPG(&quot;...&quot;);
+    }
+}</code></pre>
+<ol start="8" style="list-style-type: decimal">
+<li>Vous pouvez lancer vos tests depuis ou l’IDE ou en ligne de commande avec <code>gradle test</code>.</li>
+</ol>
+<blockquote>
+<p><strong>Lorsque vous commitez, les tests sont automatiquement lancés et vous recevez un mail si vos tests ne passent pas, vous devez coder un nombre de tests assez raisonnable</strong></p>
+</blockquote>
 </div>
 <div id="étape-2-création-de-nouvelles-variables-pour-les-caractéristiques-du-personnage" class="section level3">
 <h3>Étape 2 : Création de nouvelles variables pour les caractéristiques du personnage</h3>
@@ -739,44 +759,7 @@ while (pointsRestants &gt; 0) {
 </div>
 <div id="étape-5-mise-en-place-des-tests-unitaires" class="section level3">
 <h3>Étape 5 : Mise en place des tests unitaires</h3>
-<p>Dans cette étape, vous allez apprendre à écrire des tests unitaires pour vérifier le bon fonctionnement de votre classe <code>Personnage</code>. Les tests unitaires sont une pratique courante en programmation pour s’assurer que chaque composant d’un programme fonctionne correctement de manière isolée.</p>
-<div id="instructions-1" class="section level4">
-<h4>Instructions :</h4>
-<ol style="list-style-type: decimal">
-<li><p><strong>Création d’un fichier de test :</strong></p>
-<p>Dans le répertoire <code>src/test/java</code>, créez un fichier de test pour la classe <code>Personnage</code>. Par exemple, créez un fichier <code>PersonnageTest.java</code>.</p></li>
-<li><p><strong>Écriture des tests unitaires :</strong></p>
-<p>Voici un exemple de test unitaire pour la classe <code>Personnage</code> :</p>
-<pre class="java"><code>import org.junit.Test;
-import static org.junit.Assert.*;
-
-public class PersonnageTest {
-
-    @Test
-    public void testAugmenterCompetence() {
-        Personnage personnage = new Personnage(&quot;Test&quot;);
-        personnage.augmenterCompetence(Competence.FORCE, 5);
-        assertEquals(5, personnage.getNiveauCompetence(Competence.FORCE));
-    }
-
-    @Test(expected = IllegalArgumentException.class)
-    public void testAugmenterCompetenceInvalide() {
-        Personnage personnage = new Personnage(&quot;Test&quot;);
-        personnage.augmenterCompetence(Competence.FORCE, 20);
-    }
-
-    @Test
-    public void testNomPersonnage() {
-        Personnage personnage = new Personnage(&quot;Test&quot;);
-        assertEquals(&quot;Test&quot;, personnage.getNom());
-    }
-}</code></pre></li>
-<li><p><strong>Exécution des tests :</strong></p>
-<p>Pour exécuter les tests, utilisez la commande suivante dans le terminal à la racine de votre projet :</p>
-<pre class="bash"><code>gradle test</code></pre>
-<p>Gradle exécutera les tests et affichera les résultats dans le terminal.</p></li>
-</ol>
-</div>
+<p>Rajouter des tests unitaires, ne prévoyez pas que le fonctionnement nominal, vous devez aussi écrire des tests censés planter, grâce au try catch vous pourrez vérifier que les exceptions sont bien levées.</p>
 <div id="conseils" class="section level4">
 <h4>Conseils :</h4>
 <ul>
@@ -792,7 +775,7 @@ public class PersonnageTest {
 <div id="étape-6-implémentation-de-classes-de-personnages-spécialisées" class="section level3">
 <h3>Étape 6 : Implémentation de classes de personnages spécialisées</h3>
 <p>Dans cette étape, vous allez implémenter des classes de personnages spécialisées. Vous utiliserez l’héritage pour créer ces classes et surchargerez la méthode <code>attaqueSpeciale()</code> pour chaque type de personnage.</p>
-<div id="instructions-2" class="section level4">
+<div id="instructions-1" class="section level4">
 <h4>Instructions :</h4>
 <ol style="list-style-type: decimal">
 <li>Utilisez le diagramme de classes suivant comme guide pour créer les classes de personnages spécialisées :</li>
@@ -858,7 +841,7 @@ class Mercenaire extends Personnage {
 <div id="étape-8-ajout-darmes-et-darmures-au-personnage" class="section level3">
 <h3>Étape 8 : Ajout d’armes et d’armures au personnage</h3>
 <p>Dans cette étape, nous allons étendre la classe <code>Personnage</code> pour lui permettre de porter des armes et des armures. Nous allons également créer des classes pour les armes et les armures, qui hériteront d’une classe abstraite <code>Item</code>.</p>
-<div id="instructions-3" class="section level4">
+<div id="instructions-2" class="section level4">
 <h4>Instructions :</h4>
 <ol style="list-style-type: decimal">
 <li>Créez une classe abstraite <code>Item</code> avec trois attributs : <code>description</code> de type String, <code>poids</code> de type double et <code>prix</code> de type double.</li>
@@ -890,7 +873,7 @@ class Mercenaire extends Personnage {
 <li><a href="https://docs.oracle.com/javase/8/docs/api/java/util/Comparator.html">Comparateurs en Java (Oracle Documentation)</a></li>
 </ul>
 </div>
-<div id="instructions-4" class="section level4">
+<div id="instructions-3" class="section level4">
 <h4>Instructions :</h4>
 <ol style="list-style-type: decimal">
 <li><p><strong>Création de l’interface <code>IValuable</code> :</strong></p>
@@ -914,7 +897,7 @@ class Mercenaire extends Personnage {
 <div id="étape-10-niveau-dexpérience-et-points-de-vie" class="section level3">
 <h3>Étape 10 : Niveau d’expérience et Points de vie</h3>
 <p>Avant de passer à la création du système d’exploration, nous allons ajouter deux nouvelles fonctionnalités importantes à notre jeu : un niveau d’expérience pour le personnage et des points de vie.</p>
-<div id="instructions-5" class="section level4">
+<div id="instructions-4" class="section level4">
 <h4>Instructions :</h4>
 <ol style="list-style-type: decimal">
 <li><p><strong>Ajout du niveau d’expérience :</strong></p>
