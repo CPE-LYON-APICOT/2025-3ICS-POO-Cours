@@ -1,6 +1,21 @@
 <script lang="ts">
 	import Slides from '$lib/deck/slides.svelte'
 	import '../app.postcss'
+	import TD1 from '$enonces/TD/TD1.html?url'
+    import TD2 from '$enonces/TD/TD2.html?url'
+    import TP1 from '$enonces/TP/Fallout/docs/TP1.html?url'
+
+    switch(new URLSearchParams(window.location.search).get('r')){
+        case 'TD1':
+            window.location.href = TD1
+            break
+        case 'TD2':
+            window.location.href = TD2
+            break
+        case 'TP1':
+            window.location.href = TP1
+            break
+    }
 </script>
 
 

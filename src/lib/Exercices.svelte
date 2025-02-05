@@ -5,6 +5,8 @@
 	import td2corrige from '$corriges/TD/TD2.pdf?url'
 	import tp1 from '$enonces/TP/Fallout/docs/TP1.html?url'
 	import configEnv  from '$enonces/TUTO/Mise-en-place-env.html?url'
+	import TD1 from '$enonces/TD/TD1.html?url'
+		import TD2 from '$enonces/TD/TD2.html?url'
 	import plantumlTuto from '$enonces/TUTO/PlantUML.html?url'
 	import { writable } from 'svelte/store'
 	import { browser } from '$app/environment'
@@ -39,6 +41,7 @@
 			<li><a target="_blank" href={plantumlTuto}>Tuto PlantUML</a>
 			</li>
 		</ul>
+	
 		
 	</Slide>
 	<Slide>
