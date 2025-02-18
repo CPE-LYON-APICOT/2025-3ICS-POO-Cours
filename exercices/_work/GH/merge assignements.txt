@@ -1,0 +1,28 @@
+$assignmentId = 751064
+
+$repos = gh classroom accepted-assignments -a $assignmentId | ForEach-Object {
+    $match = [regex]::Match($_, "https:\/\/github\.com\/\S+")
+    if ($match.Success) { $match.Value }
+}
+
+foreach ($repo in $repos) {
+    Write-Host "Processing repository: $repo"
+    
+    # Get PRs matching the specified title
+    $prs = gh pr list -R $repo -S "GitHub Classroom: Sync Assignment in:title" --json number -q '.[].number'
+    
+    if ($prs) {
+        $prList = $prs -split "`n"  # Split into an array
+        
+        if ($prList.Count -gt 1) {
+            throw "Error: More than one PR found for repository $repo! Script is failing."
+        }
+
+        foreach ($pr in $prList) {
+            Write-Host "Merging PR #$pr in repository $repo..."
+            gh pr merge $pr --merge -R $repo
+        }
+    } else {
+        Write-Host "No open PRs for $repo"
+    }
+}

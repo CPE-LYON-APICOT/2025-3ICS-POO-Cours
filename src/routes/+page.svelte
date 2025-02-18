@@ -1,10 +1,14 @@
+<!-- svelte-ignore missing-declaration -->
+<script context="module" lang="ts">
+    declare const __BUILD_TIMESTAMP__: string   // @ts-ignore
+</script>
+
 <script lang="ts">
-	import Slides from '$lib/deck/slides.svelte'
-	import '../app.postcss'
-	import TD1 from '$enonces/TD/TD1.html?url'
+    import Slides from '$lib/deck/slides.svelte'
+    import '../app.postcss'
+    import TD1 from '$enonces/TD/TD1.html?url'
     import TD2 from '$enonces/TD/TD2.html?url'
     import TP1 from '$enonces/TP/Fallout/docs/TP1.html?url'
-
     switch(new URLSearchParams(window.location.search).get('r')){
         case 'TD1':
             window.location.href = TD1
@@ -17,6 +21,7 @@
             break
     }
 </script>
+
 
 
 <svelte:head>

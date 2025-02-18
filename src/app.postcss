@@ -30,8 +30,15 @@
 	--r-link-color-hover: aqua;
 }
 
-.hljs {
-	background: none;
+/* .hljs {
+	 background: none; 
+} */
+.reveal .hljs,
+.reveal .hljs-ln {
+	.hljs-ln-code {
+		@apply text-wrap;
+	}
+	@apply min-h-[unset] m-1;
 }
 
 .hljs-title,
@@ -43,6 +50,7 @@
 .reveal code {
 	overflow: hidden !important;
 	overflow-y: auto !important;
+	max-height: none !important;
 }
 .reveal pre {
 	box-shadow: none;
@@ -64,6 +72,7 @@ code:has(>.hljs-ln){
     align-content: center;
     justify-content: center;
     align-items: center;
+	min-height: unset;
 
 }
 
@@ -71,17 +80,21 @@ code:has(>.hljs-ln){
 	@apply font-bold underline text-accent-400;
 	
 }
+
 /* Si une section à autre chose qu'une section (un titre et une section imbirquée), rajouter une marge */
-section:has(>h3+section){
-	>h3:has(+section>h3){
+section.present:has(>h3+section){
+	>h3{
 		@apply border-b border-accent-400;
-	}
-	>section{
-		@apply mt-5;
+		/* @apply !-mt-3 sm:-mt-16; */
+		@apply -mt-[8vh];
 	}
 	
+	
 }
-
+.smaller{
+	/* @apply text-[calc(0.8*var(--r-main-font-size))]; */
+	font-size: calc(0.8*var(--r-main-font-size));
+}
 /* Tree */
 
 /*Now the CSS*/
@@ -198,10 +211,14 @@ right connector from last child*/
 .tree li a+ul ul::before{
 	border-color:  #94a0b4;
 }
-
-
+.print-pdf{
+	section.stack h3{
+		@apply hidden;
+	}
+}
 
 @media print {
+	
 	body,
 	.reveal * {
 		background-color: white !important;

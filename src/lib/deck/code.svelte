@@ -2,7 +2,7 @@
 	export let id: string | null = null
 	export let lines: string | boolean | null = null
 	export let noescape = false
-	export let className: string | null = null
+	export let className: string | null = import.meta.env.VITE_DEFAULT_CODE_LANGUAGE
 	export let data_fragment_index: string | null = null
 	export { className as class};
 	data_fragment_index = $$props['data-fragment-index'] || null;

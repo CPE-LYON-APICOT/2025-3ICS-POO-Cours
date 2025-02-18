@@ -11,7 +11,7 @@
 
 
 
-<title>TP1.knit</title>
+<title>TD3</title>
 
 <script>// Pandoc 2.9 adds attributes on both header and div. We remove the former (to
 // be compatible with the behavior of Pandoc < 2.8).
@@ -348,711 +348,248 @@ display: none;
 
 
 
+<h1 class="title toc-ignore">TD3</h1>
 
 </div>
 
 <div id="TOC">
 <ul>
-<li><a href="#travaux-pratiques-introduction-à-la-programmation-orientée-objet-en-java---création-dun-rpg" id="toc-travaux-pratiques-introduction-à-la-programmation-orientée-objet-en-java---création-dun-rpg">Travaux Pratiques : Introduction à la Programmation Orientée Objet en Java - Création d’un RPG</a>
-<ul>
-<li><a href="#introduction" id="toc-introduction">Introduction</a></li>
-<li><a href="#objectifs" id="toc-objectifs">Objectifs</a></li>
-<li><a href="#instructions" id="toc-instructions">Instructions</a>
-<ul>
-<li><a href="#étape-1-déclaration-de-variables-et-saisie-du-nom-du-personnage" id="toc-étape-1-déclaration-de-variables-et-saisie-du-nom-du-personnage">Étape 1 : Déclaration de variables et saisie du nom du personnage</a></li>
-<li><a href="#étape-2-création-de-nouvelles-variables-pour-les-caractéristiques-du-personnage" id="toc-étape-2-création-de-nouvelles-variables-pour-les-caractéristiques-du-personnage">Étape 2 : Création de nouvelles variables pour les caractéristiques du personnage</a></li>
-<li><a href="#étape-3-création-de-la-classe-personnage" id="toc-étape-3-création-de-la-classe-personnage">Étape 3 : Création de la classe <code>Personnage</code></a></li>
-<li><a href="#étape-4-ajout-de-compétences-au-personnage" id="toc-étape-4-ajout-de-compétences-au-personnage">Étape 4 : Ajout de compétences au personnage</a></li>
-<li><a href="#étape-5-mise-en-place-des-tests-unitaires" id="toc-étape-5-mise-en-place-des-tests-unitaires">Étape 5 : Mise en place des tests unitaires</a></li>
-<li><a href="#étape-6-implémentation-de-classes-de-personnages-spécialisées" id="toc-étape-6-implémentation-de-classes-de-personnages-spécialisées">Étape 6 : Implémentation de classes de personnages spécialisées</a></li>
-<li><a href="#étape-7-utilisation-du-polymorphisme" id="toc-étape-7-utilisation-du-polymorphisme">Étape 7 : Utilisation du polymorphisme</a></li>
-<li><a href="#étape-8-ajout-darmes-et-darmures-au-personnage" id="toc-étape-8-ajout-darmes-et-darmures-au-personnage">Étape 8 : Ajout d’armes et d’armures au personnage</a></li>
-<li><a href="#étape-9-gestion-de-linventaire" id="toc-étape-9-gestion-de-linventaire">Étape 9 : Gestion de l’inventaire</a></li>
-<li><a href="#étape-10-niveau-dexpérience-et-points-de-vie" id="toc-étape-10-niveau-dexpérience-et-points-de-vie">Étape 10 : Niveau d’expérience et Points de vie</a></li>
-<li><a href="#étape-11-création-du-système-dexploration" id="toc-étape-11-création-du-système-dexploration">Étape 11 : Création du système d’exploration</a></li>
-</ul></li>
-</ul></li>
+<li><a href="#membres-statiques" id="toc-membres-statiques">Membres statiques</a></li>
+<li><a href="#polymorphisme" id="toc-polymorphisme">Polymorphisme</a></li>
+<li><a href="#expressions-lambda" id="toc-expressions-lambda">Expressions Lambda</a></li>
+<li><a href="#généricité" id="toc-généricité">Généricité</a></li>
+<li><a href="#collections" id="toc-collections">Collections</a></li>
 </ul>
 </div>
 
-<p>[TOC]</p>
-<div id="travaux-pratiques-introduction-à-la-programmation-orientée-objet-en-java---création-dun-rpg" class="section level1">
-<h1>Travaux Pratiques : Introduction à la Programmation Orientée Objet en Java - Création d’un RPG</h1>
-<div id="introduction" class="section level2">
-<h2>Introduction</h2>
-<p>Dans le cadre de ce projet de travaux pratiques, nous allons explorer les bases de la programmation orientée objet (POO) en Java en développant un jeu de rôle (RPG) simple. L’objectif est d’introduire progressivement les concepts fondamentaux de la POO tout en créant un programme que vous pouvez vous approprier pour le rendre plus ou moins intéressant.</p>
-</div>
-<div id="objectifs" class="section level2">
-<h2>Objectifs</h2>
-<ul>
-<li>Comprendre les principes de base de la programmation orientée objet.</li>
-<li>Apprendre à déclarer des variables en Java.</li>
-<li>Utiliser les entrées utilisateur pour interagir avec le programme.</li>
-<li>Afficher des données à l’écran.</li>
-<li>Progresser étape par étape dans la conception et l’implémentation d’un RPG en Java.</li>
-</ul>
-</div>
-<div id="instructions" class="section level2">
-<h2>Instructions</h2>
-<div id="étape-1-déclaration-de-variables-et-saisie-du-nom-du-personnage" class="section level3">
-<h3>Étape 1 : Déclaration de variables et saisie du nom du personnage</h3>
-<p>Dans cette première étape, vous allez créer un programme Java simple qui permet à l’utilisateur de saisir le nom de son personnage pour un jeu de rôle (RPG) et d’afficher ce nom à l’écran.</p>
-<p><strong>Instructions :</strong></p>
+<div id="membres-statiques" class="section level2">
+<h2>Membres statiques</h2>
 <ol style="list-style-type: decimal">
-<li>Démarrez votre environnement de développement Java.</li>
-<li>Créez une nouvelle classe Java appelée “PersonnageRPG”.</li>
-<li>Dans la classe “PersonnageRPG”, déclarez une variable de type String pour stocker le nom du personnage.</li>
-<li>À l’intérieur de la méthode principale (main), utilisez un objet Scanner pour permettre à l’utilisateur de saisir le nom de son personnage.</li>
-<li>Affichez ensuite le nom du personnage à l’écran.</li>
+<li>Expliquez la différence entre un attribut statique et un attribut d’instance en Java.</li>
 </ol>
-<p><strong>Exemple de code :</strong></p>
-<pre class="java"><code>import java.util.Scanner;
-
-public class PersonnageRPG {
-    public static void main(String[] args) {
-        // Déclaration de la variable pour stocker le nom du personnage
-        String nomPersonnage;
-
-        // Création d&#39;un objet Scanner pour la saisie utilisateur
-        Scanner scanner = new Scanner(System.in);
-
-        // Demande à l&#39;utilisateur de saisir le nom du personnage
-        System.out.print(&quot;Entrez le nom de votre personnage : &quot;);
-        nomPersonnage = scanner.nextLine();
-
-        // Affiche le nom du personnage à l&#39;écran
-        System.out.println(&quot;Le nom de votre personnage est : &quot; + nomPersonnage);
-
-        // Ferme le scanner
-        scanner.close();
+<article>
+<blockquote>
+<p>Un attribut statique appartient à la classe elle-même et est partagé par toutes les instances de la classe. Un attribut d’instance appartient à une instance spécifique de la classe et chaque instance a sa propre copie de cet attribut.</p>
+</blockquote>
+</article>
+<ol start="2" style="list-style-type: decimal">
+<li>Donnez un exemple de méthode statique et expliquez dans quel cas il est approprié d’utiliser une méthode statique.</li>
+</ol>
+<article>
+<blockquote>
+<pre class="java"><code>public class MathUtils {
+    public static int additionner(int a, int b) {
+        return a + b;
     }
 }</code></pre>
-<blockquote>
-<p>N’hésitez pas à vous familiariser avec l’auto-complétion et à appréhender votre IDE. Le Java est un langage assez verbeux, de plus nous allons <em>à outrance</em> faire des choses répétitives pour aborder les concepts. Si vous découvrez comment tirer profit de l’outil au maximum et que vous comprenez ce qu’il se passe, vous pourriez gagner un temps précieux.</p>
+<p>Il est approprié d’utiliser une méthode statique lorsque la méthode ne dépend pas des attributs d’instance et peut être appelée sans créer une instance de la classe.</p>
 </blockquote>
-<p><strong>Conseils :</strong> - Familiarisez-vous avec les points d’arrêt si vous les découvrez. - <a href="https://code.visualstudio.com/docs/java/java-debugging">Run and Debug Java in Visual Studio Code</a></p>
+</article>
+<ol start="3" style="list-style-type: decimal">
+<li>Pourquoi les méthodes statiques ne peuvent-elles pas accéder aux membres d’instance directement ?</li>
+</ol>
+<article>
+<blockquote>
+<p>Les méthodes statiques ne peuvent pas accéder aux membres d’instance directement car elles n’ont pas de référence à une instance spécifique de la classe. Elles appartiennent à la classe elle-même et non à une instance.</p>
+</blockquote>
+</article>
+</div>
+<div id="polymorphisme" class="section level2">
+<h2>Polymorphisme</h2>
+<ol start="4" style="list-style-type: decimal">
+<li>Expliquez le concept de polymorphisme en POO et donnez un exemple (en Java, sous forme de diagramme ou sous forme de texte qui explique bien)</li>
+</ol>
+<article>
+<blockquote>
+<p>Le polymorphisme permet à des objets de classes différentes d’être traités comme des objets du même type. Cela permet d’utiliser une interface commune pour manipuler des objets de classes différentes.</p>
+<pre class="java"><code>class Animal {
+    void faireDuBruit() {
+        System.out.println(&quot;L&#39;animal fait du bruit&quot;);
+    }
+}
+
+class Chien extends Animal {
+    void faireDuBruit() {
+        System.out.println(&quot;Le chien aboie&quot;);
+    }
+}
+
+class Chat extends Animal {
+    void faireDuBruit() {
+        System.out.println(&quot;Le chat miaule&quot;);
+    }
+}</code></pre>
+</blockquote>
+</article>
+<ol start="5" style="list-style-type: decimal">
+<li>Quelle est la différence entre le polymorphisme à la compilation et le polymorphisme à l’exécution ? Donnez un exemple pour chacun.</li>
+</ol>
+<article>
+<blockquote>
+<p>Le polymorphisme à la compilation (surcharge de méthodes) est déterminé au moment de la compilation, tandis que le polymorphisme à l’exécution (redéfinition de méthodes) est déterminé au moment de l’exécution.</p>
+<pre class="java"><code>// Polymorphisme à la compilation
+class MathUtils {
+    int additionner(int a, int b) {
+        return a + b;
+    }
+
+    double additionner(double a, double b) {
+        return a + b;
+    }
+}
+
+// Polymorphisme à l&#39;exécution
+class Animal {
+    void faireDuBruit() {
+        System.out.println(&quot;L&#39;animal fait du bruit&quot;);
+    }
+}
+
+class Chien extends Animal {
+    void faireDuBruit() {
+        System.out.println(&quot;Le chien aboie&quot;);
+    }
+}</code></pre>
+</blockquote>
+</article>
 <ol start="6" style="list-style-type: decimal">
-<li><p>Faites en sorte que l’utilisateur soit invité à saisir un nom à son personnage tant que la longueur de la variable nom est inférieure à 3.</p></li>
-<li><p>Implémenter un test unitaire :</p></li>
+<li>Comment le polymorphisme améliore-t-il la flexibilité et la maintenabilité du code ?</li>
 </ol>
-<p>Modifiez le fichier <code>src/test/java/cpe/[votrenom]/AppTest.java</code></p>
-<pre class="java"><code>public class AppTest {
-    @Test public void personnageName() {
-        try {
-            new PersonnageRPG(&quot;Jo&quot;);
-        } catch (IllegalArgumentException e) {
-            System.err.println(e.getMessage());
-            System.out.println(&quot;Test réussi&quot;);
-            assertEquals(&quot;Le nom doit contenir au moins 3 caractères&quot;, e.getMessage());
-        } 
-       new PersonnageRPG(&quot;...&quot;);
-    }
-}</code></pre>
-<ol start="8" style="list-style-type: decimal">
-<li>Vous pouvez lancer vos tests depuis ou l’IDE ou en ligne de commande avec <code>gradle test</code>.</li>
-</ol>
+<article>
 <blockquote>
-<p><strong>Lorsque vous commitez, les tests sont automatiquement lancés et vous recevez un mail si vos tests ne passent pas, vous devez coder un nombre de tests assez raisonnable</strong></p>
+<p>Le polymorphisme améliore la flexibilité et la maintenabilité du code en permettant de traiter des objets de différentes classes de manière uniforme. Cela permet de créer des systèmes plus extensibles et de réduire le couplage entre les classes.</p>
 </blockquote>
+</article>
 </div>
-<div id="étape-2-création-de-nouvelles-variables-pour-les-caractéristiques-du-personnage" class="section level3">
-<h3>Étape 2 : Création de nouvelles variables pour les caractéristiques du personnage</h3>
-<p>Dans cette étape, vous allez créer de nouvelles variables pour représenter les caractéristiques principales de votre personnage dans un RPG, telles que la force, l’agilité et l’intelligence. Vous utiliserez un switch case pour choisir quelles caractéristiques augmenter à l’aide des points de compétence.</p>
-<p><strong>Instructions :</strong></p>
-<ol style="list-style-type: decimal">
-<li>Ajoutez trois nouvelles variables de type int dans votre classe “PersonnageRPG” pour représenter la force, l’agilité et l’intelligence du personnage.</li>
-<li>Initialisez ces variables à zéro au début du programme.</li>
-<li>Demandez à l’utilisateur de répartir 25 points de compétence entre ces caractéristiques en utilisant un switch case pour choisir quelle caractéristique augmenter.</li>
-<li>Assurez-vous que le total des points attribués ne dépasse pas 25.</li>
-<li>Si le total des points attribués est négatif ou dépasse 25, lancez une exception pour indiquer une erreur.</li>
+<div id="expressions-lambda" class="section level2">
+<h2>Expressions Lambda</h2>
+<ol start="7" style="list-style-type: decimal">
+<li>Qu’est-ce qu’une expression lambda en Java et pourquoi est-elle utile ?</li>
 </ol>
-<p><strong>Conseils :</strong></p>
-<ul>
-<li>Assurez-vous de comprendre comment fonctionne le switch case pour gérer différents choix de l’utilisateur.</li>
-<li>Utilisez des conditions (if/else) pour vérifier si les points attribués sont valides et pour lancer des exceptions si nécessaire.</li>
-<li>Testez votre programme avec différentes répartitions de points pour vous assurer qu’il fonctionne correctement.</li>
-</ul>
-<ol start="6" style="list-style-type: decimal">
-<li><p>Équilibrez votre jeu, on veut éviter que le personnage soit une brute avec 25 de force et 0 en agilité et intelligence. On veut un minimum de 3 points dans chaque compétence et pas plus de 15 points par compétence. Vous avez deux solutions : soit vous initialisez les variables à 3 et vous considérez qu’il n’y a plus que 16 points à attribuer, soit vous faites en sorte que l’utilisateur choisisse un chiffre compris entre 3 et 15 en lui affichant un message en cas de saisie incorrecte. On préfèrera la deuxième option car elle vous apprend à lever une exception : <code>throw new IllegalArgumentException(&quot;L&#39;agilité doit être entre 3 et 15.&quot;);</code></p></li>
-<li><p>Votre code ressemble à ça au moment d’attribuer les points :</p></li>
-</ol>
-<pre class="java"><code>// ...existing code...
-// Répartition des points de compétence
-int pointsRestants = 25;
-while (pointsRestants &gt; 0) {
-    System.out.println(&quot;Points restants à répartir : &quot; + pointsRestants);
-    System.out.println(&quot;1. Augmenter la force&quot;);
-    System.out.println(&quot;2. Augmenter l&#39;agilité&quot;);
-    System.out.println(&quot;3. Augmenter l&#39;intelligence&quot;);
-    System.out.print(&quot;Choisissez une caractéristique à améliorer (1-3) : &quot;);
-    int choix = scanner.nextInt();
-
-    switch (choix) {
-        case 1:
-            System.out.print(&quot;Combien de points voulez-vous ajouter à la force : &quot;);
-            int pointsForceAAttribuer = scanner.nextInt();
-            if (pointsForceAAttribuer &gt; pointsRestants) {
-                throw new IllegalArgumentException(&quot;Le nombre de points attribués est supérieur au nombre de points restants&quot;);
-            }
-            int nouveauSoldePointForce = force + pointsForceAAttribuer;
-            if (nouveauSoldePointForce &lt; 3 || nouveauSoldePointForce &gt; 15) {
-                throw new IllegalArgumentException(&quot;Le nombre de points n&#39;est pas compris entre 3 et 15&quot;);
-            }
-            force = nouveauSoldePointForce;
-            pointsRestants -= pointsForceAAttribuer;
-            break;
-        // ...existing code...
-    }
-    // ...existing code...
-}</code></pre>
+<article>
 <blockquote>
-<p>Lancez le programme et essayez d’attribuer 20 points d’agilité, vous aurez l’erreur suivante :</p>
+<p>Une expression lambda est une fonction anonyme qui permet de simplifier le code en évitant de créer des classes ou des méthodes supplémentaires. Elle est utile pour écrire du code plus concis et lisible, notamment pour les interfaces fonctionnelles.</p>
 </blockquote>
+</article>
 <ol start="8" style="list-style-type: decimal">
-<li>Adaptez votre code pour introduire <code>try{} catch{}</code>. Exemple :</li>
+<li>Expliquez le concept d’interface fonctionnelle et donnez un exemple en Java.</li>
 </ol>
-<pre class="java"><code>while (pointsRestants &gt; 0) {
-    try {
-        System.out.println(&quot;Points restants à répartir : &quot; + pointsRestants);
-        System.out.println(&quot;1. Augmenter la force&quot;);
-        System.out.println(&quot;2. Augmenter l&#39;agilité&quot;);
-        System.out.println(&quot;3. Augmenter l&#39;intelligence&quot;);
-        System.out.print(&quot;Choisissez une caractéristique à améliorer (1-3) : &quot;);
-        int choix = scanner.nextInt();
-
-        switch (choix) {
-            case 1:
-                // Reste du code
-                throw new IllegalArgumentException(&quot;Le nombre de points n&#39;est pas compris entre 3 et 15&quot;);
-            break;
-        }
-    } catch (Exception e) {
-        System.err.println(&quot;\033[0;31m&quot; + e.getMessage() + &quot;\033[0m&quot;);
-    }
-}</code></pre>
+<article>
 <blockquote>
-<p>Ne prêtez pas trop attention aux caractères bizarres dans le catch. Cela permet de changer la couleur de la console pour afficher l’erreur en rouge.</p>
-</blockquote>
-<p>Ainsi, lorsque vous ferez une mauvaise saisie, le message d’erreur s’affichera et vous devrez recommencer jusqu’à avoir correctement attribué tous vos points.</p>
-<blockquote>
-<p><strong>Vous remarquez que le code commence à devenir répétitif pour 4 pauvres variables. On va alors essayer de transformer ce code en programme orienté objet.</strong></p>
-</blockquote>
-</div>
-<div id="étape-3-création-de-la-classe-personnage" class="section level3">
-<h3>Étape 3 : Création de la classe <code>Personnage</code></h3>
-<ol style="list-style-type: decimal">
-<li>Créez une nouvelle classe <code>Personnage</code> dans le fichier <code>Personnage.java</code> qui contiendra les attributs et les méthodes pour représenter un personnage dans le RPG.</li>
-</ol>
-<pre class="java"><code>public class Personnage {
-    private String nom;
-    private int force;
-    private int agilite;
-    private int intelligence;
-
-    // Constructeur
-    public Personnage(String nom) {
-        this.nom = nom;
-        this.force = 0;
-        this.agilite = 0;
-        this.intelligence = 0;
-    }
-
-    // Getters
-    public String getNom() {
-        return nom;
-    }
-
-    public int getForce() {
-        return force;
-    }
-
-    public int getAgilite() {
-        return agilite;
-    }
-
-    public int getIntelligence() {
-        return intelligence;
-    }
-
-    // Setters avec vérifications
-
-    public void augmenterIntelligence(int intelligenceAAjouter) {
-        int nouvelleIntelligence = intelligenceAAjouter + intelligence;
-        if (nouvelleIntelligence &lt; 3 || nouvelleIntelligence &gt; 15) {
-            throw new IllegalArgumentException(&quot;L&#39;intelligence doit être entre 3 et 15.&quot;);
-        }
-        this.intelligence = nouvelleIntelligence;
-    }
-    // ... Faites pareil pour Agilité et Force
-}</code></pre>
-<div id="étape-3.1-utilisation-de-la-classe-personnage-dans-le-programme-principal" class="section level4">
-<h4>Étape 3.1 : Utilisation de la classe <code>Personnage</code> dans le programme principal</h4>
-<p>Dans votre programme principal, utilisez la classe <code>Personnage</code> pour créer un personnage et utilisez ses méthodes pour accéder et modifier ses caractéristiques.</p>
-<pre class="java"><code>import java.util.Scanner;
+<p>Une interface fonctionnelle est une interface qui ne contient qu’une seule méthode abstraite. Elle peut être utilisée avec des expressions lambda pour fournir une implémentation de cette méthode.</p>
+<pre class="java"><code>@FunctionalInterface
+interface Operation {
+    int calculer(int a, int b);
+}
 
 public class Main {
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-
-        // Demande à l&#39;utilisateur de saisir le nom du personnage (au moins 3 caractères)
-        String nomPersonnage = &quot;&quot;;
-        while (nomPersonnage.length() &lt; 3) {
-            System.out.print(&quot;Entrez le nom de votre personnage (au moins 3 caractères) : &quot;);
-            nomPersonnage = scanner.nextLine();
-        }
-
-        // Création d&#39;un objet Personnage
-        Personnage personnage = new Personnage(nomPersonnage);
-
-        // Répartition des points de compétence
-        int pointsRestants = 25;
-        while (pointsRestants &gt; 0) {
-            try {
-                System.out.println(&quot;Points restants à répartir : &quot; + pointsRestants);
-                System.out.println(&quot;1. Augmenter la force&quot;);
-                System.out.println(&quot;2. Augmenter l&#39;agilité&quot;);
-                System.out.println(&quot;3. Augmenter l&#39;intelligence&quot;);
-                System.out.print(&quot;Choisissez une caractéristique à améliorer (1-3) : &quot;);
-                int choix = scanner.nextInt();
-
-                switch (choix) {
-                    case 1:
-                        System.out.print(&quot;Combien de points voulez-vous ajouter à la force (entre 3 et 15) : &quot;);
-                        int pointsForceAAttribuer = scanner.nextInt();
-                        personnage.augmenterForce(pointsForceAAttribuer);
-                        pointsRestants -= pointsForceAAttribuer;
-                        break;
-                    case 2:
-                        System.out.print(&quot;Combien de points voulez-vous ajouter à l&#39;agilité (entre 3 et 15) : &quot;);
-                        int pointsAgiliteAAttribuer = scanner.nextInt();
-                        personnage.augmenterAgilite(pointsAgiliteAAttribuer);
-                        pointsRestants -= pointsAgiliteAAttribuer;
-                        break;
-                    case 3:
-                        System.out.print(&quot;Combien de points voulez-vous ajouter à l&#39;intelligence (entre 3 et 15) : &quot;);
-                        int pointsIntelligenceAAttribuer = scanner.nextInt();
-                        personnage.augmenterIntelligence(pointsIntelligenceAAttribuer);
-                        pointsRestants -= pointsIntelligenceAAttribuer;
-                        break;
-                    default:
-                        System.out.println(&quot;Choix invalide, veuillez choisir une option valide !&quot;);
-                }
-            } catch (Exception e) {
-                System.err.println(&quot;\033[0;31m&quot; + e.getMessage() + &quot;\033[0m&quot;);
-            }
-        }
-
-        // Affichage des caractéristiques du personnage
-        System.out.println(&quot;Nom du personnage : &quot; + personnage.getNom());
-        System.out.println(&quot;Force : &quot; + personnage.getForce());
-        System.out.println(&quot;Agilité : &quot; + personnage.getAgilite());
-        System.out.println(&quot;Intelligence : &quot; + personnage.getIntelligence());
-
-        scanner.close();
+        Operation addition = (a, b) -&gt; a + b;
+        System.out.println(addition.calculer(5, 3)); // Affiche 8
     }
 }</code></pre>
-<blockquote>
-<p>Vous remarquez une erreur en compilant votre code. En Java, le nom du fichier doit respecter le nom de la classe qu’il contient et il ne doit y avoir qu’une seule classe par fichier. Vous remarquez que la petite ampoule 💡 vous propose de corriger ça à votre place.</p>
 </blockquote>
-<p><strong>Observations :</strong></p>
-<ul>
-<li>La classe <code>Personnage</code> encapsule maintenant les données et les opérations liées à un personnage, améliorant ainsi la lisibilité et la maintenance du code.</li>
-<li>Les vérifications des valeurs des caractéristiques sont désormais effectuées dans les setters de la classe <code>Personnage</code>, ce qui renforce le principe d’encapsulation et garantit l’intégrité des données.</li>
-</ul>
+</article>
 </div>
-</div>
-<div id="étape-4-ajout-de-compétences-au-personnage" class="section level3">
-<h3>Étape 4 : Ajout de compétences au personnage</h3>
-<p>Dans cette étape, vous allez étendre les caractéristiques du personnage en ajoutant des compétences telles que la perception, l’endurance, le charisme et la chance. Au lieu de créer des getters et des setters pour chaque compétence, vous allez stocker ces informations dans un dictionnaire pour simplifier votre code.</p>
-<p><strong>Instructions :</strong></p>
-<ol style="list-style-type: decimal">
-<li>Ajoutez les compétences suivantes : Perception, Endurance, Charisme, et Chance, en plus des caractéristiques déjà existantes. Pour cela, créez un fichier <code>Competence.java</code> et ajoutez le code suivant :</li>
+<div id="généricité" class="section level2">
+<h2>Généricité</h2>
+<ol start="9" style="list-style-type: decimal">
+<li>Qu’est-ce que la généricité en Java et quels sont ses avantages ?</li>
 </ol>
-<pre class="java"><code>enum Competence {
-    FORCE, PERCEPTION, ENDURANCE, CHARISME, INTELLIGENCE, AGILITE, CHANCE;
-}</code></pre>
-<ol start="2" style="list-style-type: decimal">
-<li><p>Nous allons introduire une nouvelle variable que vous ne connaissez pas : <code>EnumMap</code>. EnumMap est un dictionnaire dont les clés font partie d’une énum. En gros, vous pouvez l’imaginer comme un tableau, la première colonne contient les noms de compétences et la deuxième ce que vous voulez. Toutefois, vous ne voulez pas qu’on puisse écrire n’importe quoi dans ce tableau. Par exemple <code>enumMap.put(Competences.FORCE, 1);</code> c’est OK mais on ne pourra pas écrire <code>enumMap.put(&quot;toto&quot;,1)</code>.</p></li>
-<li><p>Dans la classe <code>Personnage</code>, créez une méthode <code>augmenterCompetence</code> pour augmenter le niveau d’une compétence spécifique en vérifiant que la nouvelle valeur est comprise entre 3 et 15.</p></li>
-<li><p>Utilisez des exceptions pour signaler une erreur si l’utilisateur entre une valeur incorrecte lors de l’augmentation d’une compétence.</p></li>
-<li><p>Vous pouvez vous débarrasser de <code>augmenterForce</code>, <code>augmenterAgilite</code> et <code>augmenterIntelligence</code>.</p></li>
-</ol>
-<p>À ce stade, votre classe Personnage ressemble à ceci :</p>
-<pre class="java"><code>import java.util.EnumMap;
-import java.util.Map;
-
-public class Personnage {
-    private String nom;
-    private Map&lt;Competence, Integer&gt; competences;
-
-    // Constructeur
-    public Personnage(String nom) {
-        this.nom = nom;
-        this.competences = new EnumMap&lt;&gt;(Competence.class);
-        // Initialisation des compétences avec des valeurs par défaut
-        initialiserCompetences();
-    }
-
-    // Méthode privée pour initialiser les compétences avec des valeurs par défaut
-    private void initialiserCompetences() {
-        for (Competence competence : Competence.values()) {
-            competences.put(competence, 0);
-        }
-    }
-
-    // Méthode pour augmenter le niveau d&#39;une compétence
-    public void augmenterCompetence(Competence competence, int points) {
-        // Effectuez les vérifications nécessaires
-        int nouveauNiveau = competences.get(competence) + points;
-        if (nouveauNiveau &lt; 3 || nouveauNiveau &gt; 15) {
-            throw new IllegalArgumentException(&quot;Le niveau de la compétence doit être entre 3 et 15.&quot;);
-        }
-        competences.put(competence, nouveauNiveau);
-    }
-
-    public int getNiveauCompetence(Competence competence) {
-        return competences.get(competence);
-    }
-
-    // Méthode pour afficher les compétences du personnage
-    public void afficherCompetences() {
-        System.out.println(&quot;Compétences de &quot; + nom + &quot; :&quot;);
-        for (Competence competence : Competence.values()) {
-            System.out.println(String.format(&quot;%-10s \t niveau : %d&quot;, competence, getNiveauCompetence(competence)));
-        }
-    }
-}</code></pre>
-<p>Dans votre code principal :</p>
-<pre class="java"><code>// ...existing code...
-// Répartition des points de compétence
-int pointsRestants = 25;
-while (pointsRestants &gt; 0) {
-    System.out.println(&quot;Points restants à répartir : &quot; + pointsRestants);
-    System.out.println(&quot;Choisissez une compétence à améliorer : &quot;);
-    for (int index = 0; index &lt; Competence.values().length; index++) {
-        System.out.println(String.format(&quot;%d. %s&quot;, index + 1, Competence.values()[index]));
-    }
-
-    Integer choixCompetence = scanner.nextInt();
-    if (choixCompetence &lt; 1 || choixCompetence &gt; Competence.values().length) {
-        throw new IllegalArgumentException(&quot;Veuillez choisir un nombre entre 1 et &quot; + Competence.values().length);
-    }
-
-    Competence competenceAAugmenter = Competence.values()[choixCompetence - 1];
-    System.out.print(&quot;Combien de points voulez-vous ajouter à &quot; + competenceAAugmenter + &quot; (entre 3 et 15) : &quot;);
-    int pointsCompetence = scanner.nextInt();
-
-    try {
-        personnage.augmenterCompetence(competenceAAugmenter, pointsCompetence);
-        pointsRestants -= pointsCompetence;
-    } catch (IllegalArgumentException e) {
-        System.err.println(&quot;\033[0;31m&quot; + e.getMessage() + &quot;\033[0m&quot;);
-    }
-}</code></pre>
-<p><strong>Conseils :</strong></p>
-<ul>
-<li>Utilisez un dictionnaire pour stocker les compétences afin de simplifier la gestion des données et de rendre votre code plus flexible.</li>
-<li>Utilisez des exceptions pour gérer les erreurs lors de l’augmentation des compétences, en veillant à ce que les valeurs soient comprises entre 3 et 15.</li>
-</ul>
-<p><strong>Illustration de l’avantage de l’encapsulation :</strong></p>
-<p>L’encapsulation permet de regrouper les données (les compétences du personnage) et les méthodes qui agissent sur ces données (augmenter le niveau d’une compétence) dans une seule entité, la classe <code>Personnage</code>. Cela rend le code plus modulaire, plus facile à comprendre et à maintenir. De plus, en encapsulant les données, nous pouvons garantir leur intégrité et empêcher l’accès direct et non autorisé à ces données de l’extérieur de la classe. Dans notre exemple, si votre personnage gagne un niveau, vous n’aurez qu’à appeler la méthode <code>augmenterCompetence</code> et vous n’aurez pas à refaire toutes les vérifications. Aussi, il est impossible sans modifier la classe Personnage de changer la limite de 15 points de compétences. C’est un aspect fondamental en termes de sécurité. Imaginez que votre seule mission est de créer une librairie avec la classe Personnage et que d’autres personnes peuvent créer un jeu, vous êtes assurés qu’ils ne pourront pas la modifier et que le niveau maximum sera toujours de 15.</p>
-</div>
-<div id="étape-5-mise-en-place-des-tests-unitaires" class="section level3">
-<h3>Étape 5 : Mise en place des tests unitaires</h3>
-<p>Rajouter des tests unitaires, ne prévoyez pas que le fonctionnement nominal, vous devez aussi écrire des tests censés planter, grâce au try catch vous pourrez vérifier que les exceptions sont bien levées.</p>
-<div id="conseils" class="section level4">
-<h4>Conseils :</h4>
-<ul>
-<li>Écrivez des tests pour chaque méthode de votre classe <code>Personnage</code> pour vous assurer qu’elles fonctionnent correctement.</li>
-<li>Testez les cas normaux ainsi que les cas d’erreur pour vérifier que les exceptions sont correctement levées.</li>
-<li>Utilisez les assertions (<code>assertEquals</code>, <code>assertTrue</code>, <code>assertFalse</code>, etc.) pour vérifier les résultats attendus.</li>
-</ul>
+<article>
 <blockquote>
-<p>À partir de maintenant, vous devriez écrire des tests unitaires pour chaque nouvelle fonctionnalité que vous ajoutez à votre programme. Cela vous permettra de détecter rapidement les erreurs et de garantir que votre code fonctionne correctement.</p>
+<p>La généricité permet de créer des classes, des interfaces et des méthodes avec des types paramétrés. Elle permet de réutiliser du code avec différents types sans le dupliquer, d’améliorer la sécurité du type et de réduire les erreurs de type à l’exécution.</p>
 </blockquote>
-</div>
-</div>
-<div id="étape-6-implémentation-de-classes-de-personnages-spécialisées" class="section level3">
-<h3>Étape 6 : Implémentation de classes de personnages spécialisées</h3>
-<p>Dans cette étape, vous allez implémenter des classes de personnages spécialisées. Vous utiliserez l’héritage pour créer ces classes et surchargerez la méthode <code>attaqueSpeciale()</code> pour chaque type de personnage.</p>
-<div id="instructions-1" class="section level4">
-<h4>Instructions :</h4>
-<ol style="list-style-type: decimal">
-<li>Utilisez le diagramme de classes suivant comme guide pour créer les classes de personnages spécialisées :</li>
+</article>
+<ol start="10" style="list-style-type: decimal">
+<li>Expliquez comment les contraintes de type peuvent être appliquées aux types génériques. Donnez un exemple.</li>
 </ol>
-<p><img src="data:image/png;base64,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" /></p>
-<ol style="list-style-type: decimal">
-<li>Transformez votre classe <code>Personnage</code> en une classe abstraite avec les attributs et les méthodes communs à tous les personnages.</li>
-<li>Ajouter une méthode <code>public abstract void attaqueSpeciale();</code></li>
-<li>Créez des classes spécialisées <code>Mercenaire</code>, <code>SuperMutant</code> et <code>Scientifique</code> en héritant de la classe <code>Personnage</code>.</li>
-<li>Surchargez la méthode <code>attaqueSpeciale()</code> dans chaque classe spécialisée pour définir le comportement de l’attaque spéciale de chaque type de personnage.</li>
-<li>Testez vos classes en créant des instances de chaque type de personnage et en appelant la méthode <code>attaqueSpeciale()</code>.</li>
-<li>Dans le constructeur, appelez la méthode <code>super()</code> pour appeler le constructeur parent qui est censé initialiser les compétences à 0. Après l’initialisation, dans la classe enfant, ajoutez par exemple <code>augmenterCompetence(Competence.AGILITE, 5);</code> ainsi chaque classe de personnage a un avantage par rapport aux autres.</li>
-</ol>
-</div>
-<div id="conseils-1" class="section level4">
-<h4>Conseils :</h4>
-<ul>
-<li>Pour créer une classe avec héritage, utilisez le mot-clé <code>extends</code> suivi du nom de la classe parente.</li>
-<li>Pour surcharger une méthode, déclarez une méthode avec la même signature dans la classe enfant, mais avec une implémentation différente.</li>
-</ul>
-<pre class="java"><code>// Classe Mercenaire
-class Mercenaire extends Personnage {
-    // Constructeur
-    public Mercenaire(String nom) {
-        super(nom);
-        augmenterCompetence(Competence.AGILITE, 5);
-        // Mettez la compétence de votre choix pour illustrer
+<article>
+<blockquote>
+<p>Les contraintes de type permettent de restreindre les types qui peuvent être utilisés avec des classes ou des méthodes génériques en utilisant le mot-clé <code>extends</code>.</p>
+<pre class="java"><code>class Cage&lt;T extends Animal&gt; {
+    private T contenu;
+
+    public void setContenu(T contenu) {
+        this.contenu = contenu;
     }
 
-    // Attaque spéciale du mercenaire
-    @Override
-    public void attaqueSpeciale() {
-        System.out.println(getNom() + &quot; utilise son attaque spéciale : Tir de précision !&quot;);
+    public T getContenu() {
+        return contenu;
     }
-}</code></pre>
-</div>
-</div>
-<div id="étape-7-utilisation-du-polymorphisme" class="section level3">
-<h3>Étape 7 : Utilisation du polymorphisme</h3>
-<p>Dans l’étape 7, nous allons montrer comment tirer profit du polymorphisme en utilisant les classes spécialisées <code>Mercenaire</code>, <code>SuperMutant</code>, et <code>Scientifique</code> dans notre programme principal. Voici un exemple de code :</p>
-<pre class="java"><code>public class Main {
+}
+
+class Animal {}
+class Chien extends Animal {}
+
+public class Main {
     public static void main(String[] args) {
-        // Création d&#39;une liste de personnages
-        List&lt;Personnage&gt; personnages = new ArrayList&lt;&gt;();
-        
-        // Ajout de différents types de personnages à la liste
-        personnages.add(new Mercenaire(&quot;John&quot;));
-        personnages.add(new SuperMutant(&quot;Gronk&quot;));
-        personnages.add(new Scientifique(&quot;Dr. Smith&quot;));
-        
-        // Boucle sur la liste des personnages pour les faire attaquer
-        for (Personnage personnage : personnages) {
-            System.out.println(&quot;Nom du personnage : &quot; + personnage.getNom());
-            personnage.attaqueSpeciale();
-            personnage.afficherCompetences();
-            System.out.println(); // Saut de ligne pour la lisibilité
-        }
+        Cage&lt;Chien&gt; cageDeChien = new Cage&lt;&gt;();
+        cageDeChien.setContenu(new Chien());
+        System.out.println(cageDeChien.getContenu());
     }
 }</code></pre>
-<p>Dans ce code, nous utilisons une liste de type <code>Personnage</code> pour stocker différents types de personnages : <code>Mercenaire</code>, <code>SuperMutant</code>, et <code>Scientifique</code>. Lorsque nous parcourons la liste des personnages, nous appelons la méthode <code>attaqueSpeciale()</code>.</p>
-<p>Grâce au polymorphisme, l’appel à <code>attaqueSpeciale()</code> sur chaque objet de la liste déclenchera l’implémentation spécifique de cette méthode dans la classe concrète à laquelle l’objet appartient. Cela nous permet d’appeler la méthode appropriée pour chaque type de personnage sans avoir à connaître le type exact à l’avance, ce qui rend notre code plus flexible et extensible.</p>
+</blockquote>
+</article>
 </div>
-<div id="étape-8-ajout-darmes-et-darmures-au-personnage" class="section level3">
-<h3>Étape 8 : Ajout d’armes et d’armures au personnage</h3>
-<p>Dans cette étape, nous allons étendre la classe <code>Personnage</code> pour lui permettre de porter des armes et des armures. Nous allons également créer des classes pour les armes et les armures, qui hériteront d’une classe abstraite <code>Item</code>.</p>
-<div id="instructions-2" class="section level4">
-<h4>Instructions :</h4>
-<ol style="list-style-type: decimal">
-<li>Créez une classe abstraite <code>Item</code> avec trois attributs : <code>description</code> de type String, <code>poids</code> de type double et <code>prix</code> de type double.</li>
-<li>Ajoutez deux sous-classes <strong>abstraites</strong> de <code>Item</code> : <code>Arme</code> et <code>Armure</code>.</li>
-<li>La classe <code>Arme</code> doit avoir un attribut supplémentaire <code>degats</code> de type int, représentant les dégâts infligés par l’arme.</li>
-<li>La classe <code>Armure</code> doit avoir un attribut supplémentaire <code>protection</code> de type int, représentant le niveau de protection fourni par l’armure.</li>
-<li>Modifiez la classe <code>Personnage</code> pour lui permettre de porter une arme et/ou une armure. Ajoutez les méthodes <code>equiperArme()</code> et <code>equiperArmure()</code> pour cela.</li>
-<li>Testez vos classes en créant des classes dérivées d’armes et d’armures et quelques instances, en les équipant à un personnage, et en simulant des interactions de combat.</li>
+<div id="collections" class="section level2">
+<h2>Collections</h2>
+<ol start="11" style="list-style-type: decimal">
+<li>Quelles sont les principales interfaces de collections en Java et quelles sont leurs différences ?</li>
 </ol>
-<p>À la fin de cette étape, votre classe <code>Personnage</code> devrait être capable de porter des armes et des armures, ce qui ajoutera une dimension tactique intéressante à votre RPG.</p>
-</div>
-</div>
-<div id="étape-9-gestion-de-linventaire" class="section level3">
-<h3>Étape 9 : Gestion de l’inventaire</h3>
-<p>Dans cette étape, nous allons nous concentrer sur la gestion de l’inventaire dans notre jeu RPG, en utilisant les classes Collection de Java pour stocker les objets et en introduisant les interfaces et les comparateurs pour enrichir cette fonctionnalité.</p>
-<div id="partie-théorique-interfaces-et-comparateurs-en-java" class="section level4">
-<h4>Partie théorique : Interfaces et comparateurs en Java</h4>
-<p>Avant de commencer à coder, examinons brièvement deux concepts clés que nous allons utiliser :</p>
-<ul>
-<li><p><strong>Interfaces en Java :</strong> Une interface est un contrat que les classes peuvent choisir de remplir en implémentant ses méthodes. Cela permet de définir un ensemble de comportements sans spécifier comment ils doivent être implémentés. Dans notre cas, nous allons créer une interface <code>IValuable</code> avec une méthode <code>aPourValeur</code> pour représenter la valeur des objets.</p></li>
-<li><p><strong>Comparateurs en Java :</strong> Les comparateurs sont des objets qui définissent un ordre total sur des objets. Ils sont utilisés pour trier des collections d’objets selon certains critères. Nous allons créer des comparateurs pour trier les objets de l’inventaire en fonction de leur prix, leur poids et leur valeur.</p></li>
-</ul>
-<p>Maintenant que nous avons une compréhension de base de ces concepts, passons à la mise en pratique.</p>
-</div>
-<div id="ressources-supplémentaires" class="section level4">
-<h4>Ressources supplémentaires :</h4>
-<ul>
-<li><a href="https://docs.oracle.com/javase/tutorial/java/concepts/interface.html">Interface en Java (Oracle Documentation)</a></li>
-<li><a href="https://docs.oracle.com/javase/8/docs/api/java/util/Comparator.html">Comparateurs en Java (Oracle Documentation)</a></li>
-</ul>
-</div>
-<div id="instructions-3" class="section level4">
-<h4>Instructions :</h4>
-<ol style="list-style-type: decimal">
-<li><p><strong>Création de l’interface <code>IValuable</code> :</strong></p>
-<p>Implémentez une interface <code>IValuable</code> avec une méthode <code>aPourValeur</code> qui renvoie la valeur de l’objet. Cette interface sera utilisée pour définir le comportement des objets ayant une valeur dans notre jeu. [!CAUTION] Je ne parle pas de la valeur “prix” mais pour une arme ce sera ses dégâts et pour une protection son niveau de protection.</p></li>
-<li><p><strong>Utilisation de l’interface dans la classe <code>Item</code> :</strong></p>
-<p>Dans la méthode <code>toString</code> de la classe <code>Item</code>, utilisez l’opérateur <code>instanceof</code> pour vérifier si l’objet implémente l’interface <code>IValuable</code>. Si c’est le cas, affichez la valeur de l’objet.</p></li>
-<li><p><strong>Méthode <code>ajouterALInventaire</code> :</strong></p>
-<p>Implémentez une méthode <code>ajouterALInventaire</code> qui ajoute un objet à l’inventaire. Utilisez une collection de type <code>Set</code> pour stocker les objets uniques, en évitant les doublons.</p></li>
-<li><p><strong>Affichage de l’inventaire :</strong></p>
-<p>Implémentez une méthode <code>afficherInventaire</code> qui utilise les Streams pour grouper les objets de l’inventaire par le nom de leur classe. Présentez l’introspection en expliquant comment cela permet d’accéder aux métadonnées des classes à l’exécution.</p></li>
-<li><p><strong>Menu de sélection d’affichage :</strong></p>
-<p>Créez un menu interactif qui permet aux joueurs de choisir quelle page d’inventaire ils veulent voir. Utilisez les méthodes <code>System.out.println</code> pour afficher les options et la classe <code>Scanner</code> pour lire l’entrée de l’utilisateur.</p></li>
-<li><p><strong>Implémentation des comparateurs :</strong></p>
-<p>Créez des comparateurs pour trier les objets en fonction de leur prix, leur poids et leur valeur. Utilisez les interfaces <code>Comparator</code> pour définir ces comparateurs.</p></li>
-<li><p><strong>Tri de l’inventaire :</strong></p>
-<p>Dans le menu de sélection, permettez aux joueurs de choisir le type de tri qu’ils veulent appliquer à leur inventaire en tapant une lettre suivie d’un numéro correspondant au type de comparateur. &gt; Vous pouvez utiliser la méthode <code>Collections.sort</code> pour trier les objets en utilisant les comparateurs. Vous pouvez également utiliser les Streams pour trier les objets en fonction de leur valeur (dégâts ou protection), de leur poids ou de leur prix. Pour cela, stockez les comparateurs dans des variables et utilisez-les ainsi : <code>java  Collections.sort(inventaire, comparateur);</code></p></li>
+<article>
+<blockquote>
+<p>Les principales interfaces de collections en Java sont <code>List</code>, <code>Set</code>, et <code>Queue</code>. <code>List</code> est une collection ordonnée qui permet les éléments en double. <code>Set</code> est une collection qui ne permet pas les éléments en double. <code>Queue</code> est une collection qui suit le principe FIFO (First In, First Out).</p>
+</blockquote>
+</article>
+<ol start="12" style="list-style-type: decimal">
+<li>Expliquez la différence entre une <code>HashMap</code> et une <code>TreeMap</code>. Donnez un exemple d’utilisation pour chacune.</li>
 </ol>
-<p>En suivant ces étapes, vous allez enrichir votre jeu RPG en permettant aux joueurs de gérer efficacement leur inventaire et de personnaliser leur expérience de jeu en fonction de leurs besoins et préférences.</p>
-</div>
-</div>
-<div id="étape-10-niveau-dexpérience-et-points-de-vie" class="section level3">
-<h3>Étape 10 : Niveau d’expérience et Points de vie</h3>
-<p>Avant de passer à la création du système d’exploration, nous allons ajouter deux nouvelles fonctionnalités importantes à notre jeu : un niveau d’expérience pour le personnage et des points de vie.</p>
-<div id="instructions-4" class="section level4">
-<h4>Instructions :</h4>
-<ol style="list-style-type: decimal">
-<li><p><strong>Ajout du niveau d’expérience :</strong></p>
-<p>Ajoutez un attribut <code>niveauExperience</code> à la classe <code>Personnage</code> pour suivre le niveau d’expérience du personnage.</p></li>
-<li><p><strong>Ajout des points de vie :</strong></p>
-<p>Ajoutez une méthode <code>getPointsDeVie</code> à la classe <code>Personnage</code> pour représenter les points de vie du personnage. Dans un premier temps, le personnage ne perd pas définitivement ses points de vie mais il les récupère à chaque fois qu’il est blessé à l’issue d’un combat. En l’occurrence, c’est plutôt “points de vie max” que vous allez implémenter. Faites que la méthode renvoie <code>100 + Force * 10</code>.</p></li>
+<article>
+<blockquote>
+<p><code>HashMap</code> est une implémentation de la carte qui ne garantit pas l’ordre des éléments. <code>TreeMap</code> est une implémentation de la carte qui maintient les éléments dans un ordre trié.</p>
+<pre class="java"><code>import java.util.HashMap;
+import java.util.Map;
+import java.util.TreeMap;
+
+public class Main {
+    public static void main(String[] args) {
+        Map&lt;String, Integer&gt; hashMap = new HashMap&lt;&gt;();
+        hashMap.put(&quot;Pierre&quot;, 30);
+        hashMap.put(&quot;Paul&quot;, 25);
+        hashMap.put(&quot;Jacques&quot;, 35);
+        System.out.println(hashMap);
+
+        Map&lt;String, Integer&gt; treeMap = new TreeMap&lt;&gt;();
+        treeMap.put(&quot;Pierre&quot;, 30);
+        treeMap.put(&quot;Paul&quot;, 25);
+        treeMap.put(&quot;Jacques&quot;, 35);
+        System.out.println(treeMap);
+    }
+}</code></pre>
+</blockquote>
+</article>
+<ol start="13" style="list-style-type: decimal">
+<li>Comment la bibliothèque <code>Stream</code> de Java peut-elle être utilisée pour manipuler des collections ? Donnez un exemple.</li>
 </ol>
-</div>
-</div>
-<div id="étape-11-création-du-système-dexploration" class="section level3">
-<h3>Étape 11 : Création du système d’exploration</h3>
-<p>Maintenant que nous avons enrichi notre personnage, nous allons créer un système d’exploration pour lui permettre de vivre des aventures excitantes et dangereuses !</p>
-<div id="classe-explorationgenerator" class="section level4">
-<h4>Classe ExplorationGenerator</h4>
-<ol style="list-style-type: decimal">
-<li><p><strong>Création de la classe ExplorationGenerator :</strong></p>
-<p>Créez une nouvelle classe <code>ExplorationGenerator</code> qui exposera une méthode <code>explorer(Personnage)</code>. Cette méthode permettra au personnage de découvrir de nouveaux endroits et d’interagir avec ce qu’il y trouve.</p></li>
-<li><p><strong>Méthode <code>explorer</code> :</strong></p>
-<p>Dans la méthode <code>explorer</code>, générez un nombre aléatoire. Sur une chance sur 4, appelez la méthode <code>looterUnObjet()</code>, sinon appelez la méthode <code>combat()</code>.</p></li>
-<li><p><strong>Méthode <code>combat</code> :</strong></p>
-<p>La méthode <code>combat</code> devra être définie dans l’interface <code>ICombatGenerator</code>. Elle prendra en paramètre le personnage et renverra un boolean indiquant le résultat du combat (victoire ou défaite).</p></li>
-<li><p><strong>Méthode <code>looterUnObjet</code> :</strong></p>
-<p>La méthode <code>looterUnObjet</code> devra être définie dans l’interface <code>ILootGenerator</code>. Elle prendra également en paramètre le personnage et renverra un objet <code>Item</code>.</p></li>
-<li><p><strong>Gestion de la victoire :</strong></p>
-<p>Si le résultat du combat est <code>true</code>, c’est-à-dire que le personnage a remporté le combat, il y a une chance sur 2 d’appeler la méthode <code>looterUnObjet</code>. Dans tous les cas, le personnage gagnera de l’expérience.</p></li>
-<li><p><strong>Interfaces pour la génération :</strong></p>
-<p>Stockez une référence vers une instance des interfaces <code>ILootGenerator</code>, <code>ICombatGenerator</code> et <code>IExperienceGenerator</code>. Ces interfaces prennent en paramètre un personnage et renvoient respectivement un objet <code>Item</code>, un boolean et un entier.</p></li>
-</ol>
-</div>
-<div id="interfaces-pour-la-génération-de-loot-de-combat-et-dexpérience" class="section level4">
-<h4>Interfaces pour la génération de loot, de combat et d’expérience</h4>
-<p>Voici les interfaces et les classes concrètes pour générer du loot, gérer les combats et calculer l’expérience gagnée par le personnage.</p>
-<div id="interface-ilootgenerator" class="section level5">
-<h5>Interface ILootGenerator :</h5>
-<pre class="java"><code>public interface ILootGenerator {
-    Item genererLoot();
-}</code></pre>
-</div>
-<div id="interface-icombatgenerator" class="section level5">
-<h5>Interface ICombatGenerator :</h5>
-<pre class="java"><code>public interface ICombatGenerator {
-    boolean combat(Personnage personnage);
-}</code></pre>
-</div>
-<div id="interface-iexperiencegenerator" class="section level5">
-<h5>Interface IExperienceGenerator :</h5>
-<pre class="java"><code>public interface IExperienceGenerator {
-    int calculerExperience(Personnage personnage);
-}</code></pre>
-</div>
-</div>
-<div id="implémentations-des-classes" class="section level4">
-<h4>Implémentations des classes :</h4>
-<div id="lootgenerator" class="section level5">
-<h5>LootGenerator :</h5>
-<pre class="java"><code>import java.util.Random;
+<article>
+<blockquote>
+<p>La bibliothèque <code>Stream</code> permet de manipuler des collections de manière fonctionnelle en utilisant des opérations telles que <code>filter</code>, <code>map</code>, <code>reduce</code>, etc.</p>
+<pre class="java"><code>import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Collectors;
 
-public class LootGenerator implements ILootGenerator {
-    private Random random;
-
-    public LootGenerator() {
-        this.random = new Random();
-    }
-
-    @Override
-    public Item genererLoot() {
-        int choix = random.nextInt(6); // Génère un nombre aléatoire entre 0 et 5
-        // Vous pouvez vous amuser à rendre les équipements plus durs à obtenir que d&#39;autres, vous pouvez fonctionner avec des plages de valeurs. Exemple : si &lt;50 loot pourri, si &lt;60 moyen, si &lt;70 bon loot, etc. Par contre, il ne sera pas possible d&#39;utiliser un switch case.
-
-        switch (choix) {
-            case 0:
-                return new ArmureCuir();
-            case 1:
-                return new ArmureTissu();
-            case 2:
-                return new ArmureMetal();
-            case 3:
-                return new ArmureCombat();
-            case 4:
-                return new ArmureEnergetique();
-            case 5:
-                return new ArmureAssault();
-            default:
-                // En cas de choix invalide, retourne null
-                return null;
-        }
+public class Main {
+    public static void main(String[] args) {
+        List&lt;Integer&gt; nombres = Arrays.asList(1, 2, 3, 4, 5, 6);
+        List&lt;Integer&gt; nombresPairs = nombres.stream()
+                                            .filter(n -&gt; n % 2 == 0)
+                                            .collect(Collectors.toList());
+        System.out.println(nombresPairs); // Affiche [2, 4, 6]
     }
 }</code></pre>
-</div>
-<div id="combatgenerator" class="section level5">
-<h5>CombatGenerator :</h5>
-<pre class="java"><code>public class CombatGenerator implements ICombatGenerator {
-    private Random random;
-
-    public CombatGenerator() {
-        this.random = new Random();
-    }
-
-    @Override
-    public boolean combat(Personnage personnage) {
-        // Points de vie du monstre entre 50 et 100
-        int pointsDeViePersonnage = personnage.getPointsDeVie();
-
-        int pointsDeVieMonstre = pointsDeViePersonnage * random.nextDouble(0.9,1.2); // Points de vie du monstre entre 90 et 120% de ceux du personnage
-    
-        do {
-            // Calcul des dégâts infligés par le personnage et le monstre
-            int degatsPersonnage = personnage.getDegats() + random.nextInt(11); // Dégâts entre 0 et 10 supplémentaires
-            int degatsMonstre = degatsPersonnage * random.nextDouble(0.9,1.2); // Dégâts du monstre entre 90 et 120% de ceux du personnage
-
-            // Appliquer les dégâts
-            pointsDeVieMonstre -= degatsPersonnage;
-            pointsDeViePersonnage -= degatsMonstre;
-
-            // Vérifier si le combat est terminé
-            if (pointsDeVieMonstre &lt;= 0) {
-                // Le personnage a gagné
-                return true;
-            } else if (pointsDeViePersonnage &lt;= 0) {
-                // Le monstre a gagné
-                return false;
-            }
-        } while (pointsDeVieMonstre &gt; 0 &amp;&amp; pointsDeViePersonnage &gt; 0);
-
-        // Ce cas ne devrait normalement pas être atteint
-        return false;
-    }
-}</code></pre>
-</div>
-<div id="experiencegenerator" class="section level5">
-<h5>ExperienceGenerator :</h5>
-<pre class="java"><code>public class ExperienceGenerator implements IExperienceGenerator {
-    @Override
-    public int calculerExperience(Personnage personnage) {
-        int intelligence = personnage.getIntelligence();
-        int chance = personnage.getChance();
-        
-        // Calcul de l&#39;expérience en fonction de l&#39;intelligence et de la chance du personnage
-        return (intelligence * 10) + (chance * 5);
-    }
-}</code></pre>
-<ol start="7" style="list-style-type: decimal">
-<li><p><strong>Amélioration du générateur de combat</strong></p>
-<ol style="list-style-type: decimal">
-<li>Vous remarquerez que la protection du personnage et les dégâts de son arme ne rentrent pas en compte. C’est à vous d’améliorer cette méthode pour qu’elle prenne en compte ces paramètres.</li>
-<li>Rappelez-vous que votre personnage a une compétence attaque spéciale, vous pouvez l’utiliser pour augmenter les dégâts infligés par le personnage.</li>
-<li>Vous pouvez également jouer davantage avec la compétence Chance du personnage.</li>
-<li>Ajoutez des sorties consoles pour la méthode de combat pour que le joueur puisse suivre le combat.</li>
-<li>Implémentez une méthode gainExperience dans la classe Personnage pour ajouter de l’expérience au personnage. Cette méthode prendra en paramètre un entier représentant le nombre de points d’expérience à ajouter au personnage. Comparez l’ancienne valeur et la nouvelle, si le personnage a gagné un niveau, il pourra augmenter une compétence de son choix. [!NOTE] Pour détecter un changement de niveau, soit vous pouvez le faire de manière linéaire (tous les 100 points d’expérience par exemple) soit vous pouvez utiliser une formule mathématique pour calculer le niveau en fonction de l’expérience. Par exemple niveau = experience^0.3 qui donne les paliers suivants : &gt;- Niveau 2 : 10 &gt;- Niveau 3 : 38 &gt;- Niveau 4 : 101 &gt;- Niveau 5 : 213</li>
-</ol></li>
-</ol>
-</div>
-</div>
-</div>
-</div>
+</blockquote>
+</article>
 </div>
 
 

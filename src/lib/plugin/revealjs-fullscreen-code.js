@@ -1,8 +1,8 @@
 $('body').append("<div id='fullscreen-box'><pre><code></code></pre></div>" );
 $('pre code').before( "<button class='fullscreen-button'>Plein écran&nbsp;&nbsp;&nbsp;</button>" );
-var fullscreenBoxVisible = false;
+let fullscreenBoxVisible = false;
 $('button.fullscreen-button').on("click",function(e){
-    var code = this.parentElement?.children[1].innerHTML;
+    let code = this.parentElement?.children[1].innerHTML;
     if(code === undefined) return;
     if (fullscreenBoxVisible) {
         $('div#fullscreen-box pre code').html('');

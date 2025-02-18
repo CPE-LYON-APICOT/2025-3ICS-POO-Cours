@@ -18,7 +18,7 @@
 	</Slide>
 
 	<Slide>
-		<div class="grid-cols-2 grid justify-items-center">
+		<div class="grid-cols-2 grid justify-items-center items-start">
 			<h3>Programmation procédurale</h3>
 			<h3 data-fragment-index="1" class="fragment">Programmation orientée objet</h3>
 			<ProgProceduraleSchema />
@@ -28,7 +28,7 @@
 		</div>
 	</Slide>
 	<Slide>
-		<div class="grid-cols-2 grid justify-items-center">
+		<div class="grid-cols-2 grid justify-items-center items-start">
 			<h3>Programmation procédurale</h3>
 			<h3>Programmation orientée objet</h3>
 			<ul>
@@ -46,7 +46,7 @@
 		</div>
 	</Slide>
 	<Slide>
-		<div class="grid-cols-2 grid justify-items-center">
+		<div class="grid-cols-2 grid justify-items-center items-start">
 			<h3>Programmation procédurale</h3>
 			<h3 class="fragment" data-fragment-index="1">Programmation orientée objet</h3>
 			<Code>
@@ -181,7 +181,7 @@ class Personne {
 			chaînes pour la montagne ou des valises pour la moto
 		</p>
 		<p>
-			Evidemment, vous ne proposerez pas porte vélo sur une moto !<br />
+			Evidemment, vous ne proposerez pas un porte vélo sur une moto !<br />
 			Pour autant que ce soit une moto ou une voiture, vous aurez plus ou moins le même code pour gérer
 			la location, le retour, le paiement, etc...
 		</p>

@@ -82,7 +82,8 @@
 			L'utilisation du modificateur <code>protected</code> permet aux classes dérivées d'accéder aux attributs et méthodes de la classe parente.
 			Cela est utile lorsque l'on souhaite permettre à des sous-classes d'utiliser ou de modifier des données tout en les protégeant de l'accès direct extérieur.
 		</p>
-		<p>Voici un exemple en Java :</p>
+		</Slide>
+		<Slide>
 		<Code>
 			{`
     class Animal {
@@ -133,7 +134,7 @@
     }
     `}
 		</Code>
-		<p>
+		<p class="smaller">
 			Dans cet exemple, le solde du compte est privé et ne peut être modifié que par les méthodes <code>deposer</code> et <code>retirer</code>, lesquelles effectuent des vérifications.
 		</p>
 	</Slide>

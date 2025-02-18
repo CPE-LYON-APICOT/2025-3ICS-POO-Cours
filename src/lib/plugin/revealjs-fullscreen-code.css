@@ -17,7 +17,7 @@ pre code {
 pre .fullscreen-button{
     z-index: 1;
     position: absolute;
-    top: 0;
+    top: 0.5rem;
     right: 0;
 }
 /* additional box */

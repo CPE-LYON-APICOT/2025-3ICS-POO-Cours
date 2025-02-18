@@ -33,11 +33,24 @@
 		<h2>TD</h2>
 		<ul>
 			<li><a target="_blank" href={$repoUrl + 'blob/main/TD/TD1.md'}>TD1</a> 
-				<!-- <span>/ <a href={td1corrige}>Corrigé</a></span> -->
+				<span>/ <a href={td1corrige}>Corrigé</a></span>
 			</li>
 			<li><a target="_blank" href={$repoUrl + 'blob/main/TD/TD2.md'}>TD2</a> 
+				<span>/ <a href={td2corrige}>Corrigé</a></span>
+			</li>
+
+			<li><a target="_blank" href={$repoUrl + 'blob/main/TD/TD3.md'}>TD3</a> 
 				<!-- <span>/ <a href={td2corrige}>Corrigé</a></span> -->
 			</li>
+			
+			<li><a target="_blank" href={$repoUrl + 'blob/main/TD/TD3Bis.md'}>TD3 Bis (Optionnel)</a> 
+				<!-- <span>/ <a href={td2corrige}>Corrigé</a></span> -->
+			</li>
+
+			<li><a target="_blank" href={$repoUrl + 'blob/main/TD/TDParc.md'}>TD4</a> 
+				<!-- <span>/ <a href={td2corrige}>Corrigé</a></span> -->
+			</li>
+
 			<li><a target="_blank" href={plantumlTuto}>Tuto PlantUML</a>
 			</li>
 		</ul>

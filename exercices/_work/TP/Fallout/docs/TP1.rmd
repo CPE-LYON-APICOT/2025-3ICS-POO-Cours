@@ -68,6 +68,29 @@ public class PersonnageRPG {
 
 6. Faites en sorte que l'utilisateur soit invité à saisir un nom à son personnage tant que la longueur de la variable nom est inférieure à 3.
 
+7. Implémenter un test unitaire :
+
+Modifiez le fichier `src/test/java/cpe/[votrenom]/AppTest.java`
+
+```java	
+public class AppTest {
+    @Test public void personnageName() {
+        try {
+            new PersonnageRPG("Jo");
+        } catch (IllegalArgumentException e) {
+            System.err.println(e.getMessage());
+            System.out.println("Test réussi");
+            assertEquals("Le nom doit contenir au moins 3 caractères", e.getMessage());
+        } 
+       new PersonnageRPG("...");
+    }
+}
+```
+
+8. Vous pouvez lancer vos tests depuis ou l'IDE ou en ligne de commande avec `gradle test`.
+
+> **Lorsque vous commitez, les tests sont automatiquement lancés et vous recevez un mail si vos tests ne passent pas, vous devez coder un nombre de tests assez raisonnable**
+
 ### Étape 2 : Création de nouvelles variables pour les caractéristiques du personnage
 
 Dans cette étape, vous allez créer de nouvelles variables pour représenter les caractéristiques principales de votre personnage dans un RPG, telles que la force, l'agilité et l'intelligence. Vous utiliserez un switch case pour choisir quelles caractéristiques augmenter à l'aide des points de compétence.
@@ -394,54 +417,8 @@ L'encapsulation permet de regrouper les données (les compétences du personnage
 
 ### Étape 5 : Mise en place des tests unitaires
 
-Dans cette étape, vous allez apprendre à écrire des tests unitaires pour vérifier le bon fonctionnement de votre classe `Personnage`. Les tests unitaires sont une pratique courante en programmation pour s'assurer que chaque composant d'un programme fonctionne correctement de manière isolée.
+Rajouter des tests unitaires, ne prévoyez pas que le fonctionnement nominal, vous devez aussi écrire des tests censés planter, grâce au try catch vous pourrez vérifier que les exceptions sont bien levées.
 
-#### Instructions :
-
-1. **Création d'un fichier de test :**
-
-    Dans le répertoire `src/test/java`, créez un fichier de test pour la classe `Personnage`. Par exemple, créez un fichier `PersonnageTest.java`.
-
-2. **Écriture des tests unitaires :**
-
-    Voici un exemple de test unitaire pour la classe `Personnage` :
-
-    ```java
-    import org.junit.Test;
-    import static org.junit.Assert.*;
-
-    public class PersonnageTest {
-
-        @Test
-        public void testAugmenterCompetence() {
-            Personnage personnage = new Personnage("Test");
-            personnage.augmenterCompetence(Competence.FORCE, 5);
-            assertEquals(5, personnage.getNiveauCompetence(Competence.FORCE));
-        }
-
-        @Test(expected = IllegalArgumentException.class)
-        public void testAugmenterCompetenceInvalide() {
-            Personnage personnage = new Personnage("Test");
-            personnage.augmenterCompetence(Competence.FORCE, 20);
-        }
-
-        @Test
-        public void testNomPersonnage() {
-            Personnage personnage = new Personnage("Test");
-            assertEquals("Test", personnage.getNom());
-        }
-    }
-    ```
-
-3. **Exécution des tests :**
-
-    Pour exécuter les tests, utilisez la commande suivante dans le terminal à la racine de votre projet :
-
-    ```bash
-    gradle test
-    ```
-
-    Gradle exécutera les tests et affichera les résultats dans le terminal.
 
 #### Conseils :
 

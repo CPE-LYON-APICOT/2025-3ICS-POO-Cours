@@ -43,13 +43,13 @@
 	</Slide>
 
 	<Slide>
-		<div class="r-fit-text">
+		<div class="">
 			<p>
 				L'un des intérêts de la programmation orientée objet réside dans les relations que les objets entretiennent entre eux.
 				Ces relations, construites par les développeurs, constituent l'architecture d'une application.
 				Il existe deux relations fondamentales en programmation objet :
 			</p>
-			<dl class="simple">
+			<dl class="smaller"> 
 				<dt><strong>est un</strong> (<em>is-a</em>)</dt>
 				<dd>
 					<p>

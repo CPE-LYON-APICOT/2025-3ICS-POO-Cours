@@ -57,13 +57,11 @@ public class F {
 
 <article>
 
-> Seules les classes A et E sont fonctionnelles
+> Seules la classes A est fonctionnelle.
 >
-> La classe B ne peut pas accéder à la variable a de la classe A car elle est privée.
+> Puisque A.a est privée, elle ne peut pas être accédée depuis une classe fille, ce qui disqualifie la classe B et la D.
 >
-> La classe D ne peut pas accéder à la variable a de la classe A car elle est privée.
->
-> La classe F ne peut pas accéder à la variable a de la classe A car elle est privée.
+> Du coup la E et F ne fonctionnent pas non plus.
 
 </article>
 
