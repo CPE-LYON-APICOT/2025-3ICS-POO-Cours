@@ -5,6 +5,9 @@
 	import ProgProceduraleSchema from '$lib/Seance1/ProgProceduraleSchema.svelte'   
 	import ProgOOSchema from '$lib/Seance1/ProgOOSchema.svelte'
 	</script>
+	
+<!-- svelte-ignore a11y-missing-attribute -->
+ <!-- svelte-ignore a11y-invalid-attribute -->
 <Slide>
 	<Slide><h1>Introduction</h1></Slide>
 	<Slide>
@@ -124,6 +127,7 @@ class Personne {
 		<div class="tree scale-150">
 			<ul>
 				<li>
+					
 					<a href="#">Animal</a>
 					<ul>
 						<li>
