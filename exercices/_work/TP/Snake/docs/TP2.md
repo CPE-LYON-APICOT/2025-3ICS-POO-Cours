@@ -6,7 +6,7 @@ Dans ce TP, nous allons réaliser un projet Java en utilisant le pattern MVC (Mo
 
 ### Étape 1 : Initialisation du projet
 
-Pour initier le projet, exécutez la commande suivante dans votre terminal :
+Pour initialiser le projet, exécutez la commande suivante dans votre terminal :
 
 ```sh
 gradle init --type java-application --dsl kotlin --test-framework junit --use-defaults --package "cpe.$($env:USERNAME).snake" --overwrite --project-name "Snake"
@@ -19,18 +19,17 @@ Cette commande initialise un projet Java avec Gradle en utilisant Kotlin DSL pou
 Modifiez le fichier `build.gradle.kts` pour ajouter les dépendances nécessaires :
 
 ```kotlin
-
 dependencies {
-
-    // Use JUnit test framework.
+    // Utilisation du framework de test JUnit.
     testImplementation(libs.junit)
 
-    // This dependency is used by the application.
+    // Cette dépendance est utilisée par l'application.
     implementation(libs.guava)
 
-    // https://mvnrepository.com/artifact/org.springframework/spring-context
+    // Dépendance pour Spring Context.
     implementation("org.springframework:spring-context:6.2.3")
-    // https://mvnrepository.com/artifact/org.openjfx/javafx-swing
+    
+    // Dépendance pour JavaFX Swing.
     implementation("org.openjfx:javafx-swing:23")
 }
 ```
@@ -70,9 +69,9 @@ Controller --> View
 @enduml
 ```
 
-Nous allons rajouter d'avantage de composants pour gérer les dépendances et les données de l'application.
+Nous allons ajouter davantage de composants pour gérer les dépendances et les données de l'application.
 
-On ajoutera plus tard un service et un repository pour gérer les données de l'application.
+Nous ajouterons plus tard un service et un repository pour gérer les données de l'application.
 
 ```plantuml
 @startuml
@@ -114,20 +113,18 @@ Service --> Repository
 
 ### Injection de dépendances
 
-Dans l'exemple si dessus, ce devient un peu pénible de créer un contrôleur, qui utilise un service, qui utilise un repository. On peut utiliser Spring pour injecter ces dépendances.
+Dans l'exemple ci-dessus, il devient un peu pénible de créer un contrôleur, qui utilise un service, qui utilise un repository. Nous pouvons utiliser Spring pour injecter ces dépendances.
 
 L'injection de dépendances permet de décorréler les composants de l'application. Un contrôleur peut accéder à un service et une vue sans les instancier lui-même, ce qui facilite les tests et la maintenance.
 
 Nous utiliserons Spring Context pour gérer les dépendances.
 
-### Étape 3 : Introduction a Spring Context et à l'injection de dépendances
+### Étape 3 : Introduction à Spring Context et à l'injection de dépendances
 
 Pour utiliser Spring Context dans le `main` pour lancer le projet, nous allons créer une classe principale qui initialise le contexte Spring et récupère le contrôleur pour démarrer l'application.
 
 Vous allez voir des annotations comme `@Controller`, `@Service`, `@Repository`, `@Autowired`, `@Component`, `@Configuration`, `@ComponentScan`, etc.
-Pour le moment ne vous inquiétez pas de ces annotations, nous allons les voir en détail plus tard.
-
-### Étape 3 : Introduction à Spring Context et à l'injection de dépendances
+Pour le moment, ne vous inquiétez pas de ces annotations, nous allons les voir en détail plus tard.
 
 Modifiez votre classe `App.java` pour utiliser Spring Context :
 
@@ -144,7 +141,7 @@ public class MainApp {
 }
 ```
 
-> Pas de panique, ça ne compile pas à cette étape, il faut rajouter des fichiers !
+> Pas de panique, cela ne compile pas à cette étape, il faut ajouter des fichiers !
 
 Créez une classe `AppConfig` pour la configuration Spring :
 
@@ -173,7 +170,6 @@ public class MainController {
         view.displayGreeting("Bonjour");
     }
 }
-
 ```
 
 Créez une classe `views/MainView.java` :
@@ -197,14 +193,13 @@ public class MainView {
 
 ### Extraction de la chaîne "Bonjour" dans un service
 
-Nous avons dons la base de notre MVC, par contre, votre contrôleur a choisi de dire "Bonjour"
-Un contrôleur est juste censé de gérer les interactions de l'utilisateur et de mettre à jour le modèle et la vue. Il ne devrait pas contenir de logique métier.
+Nous avons ainsi la base de notre MVC, cependant, le contrôleur se contente d'afficher "Bonjour". Un contrôleur est seulement censé gérer les interactions de l'utilisateur et de mettre à jour le modèle et la vue. Il ne devrait pas contenir de logique métier.
 
-Donc si je vous demande d'afficher "Hello" au lieu de "Bonjour" en fonction de la lague, votre contrôleur va commencer à avoir trop de code.
+Donc si je vous demande d'afficher "Hello" au lieu de "Bonjour" en fonction de la langue, votre contrôleur va commencer à avoir trop de code.
 Imaginez que le client, pénible, vous demande d'écrire "Bonjour", "Bonsoir", "Good Morning", "Good Afternoon".
 
-Le reflexe est d'extraire le code dans une classe de service.
-En entreprise des outils permettent de le faire automatiquement, mais pour le TP vous allez le faire à la main.
+Le réflexe est d'extraire le code dans une classe de service.
+En entreprise, des outils permettent de le faire automatiquement, mais pour le TP vous allez le faire à la main.
 
 Créez une classe `service/GreetingService` :
 
@@ -279,7 +274,7 @@ new Controller(new View(), new GreetingService(new WeatherService()), new BookSe
 Avec Spring, pour créer une instance faites simplement :
 
 ```java
-var controlleur = context.getBean(Controller.class);
+var controller = context.getBean(Controller.class);
 ```
 
 Et tout est automatiquement injecté.
@@ -290,7 +285,7 @@ Le sujet s'intitule "Snake". Vous allez réaliser un jeu de serpent en utilisant
 
 Le projet est inspiré d'un projet étudiant de l'an dernier.
 
-C'est ce genre de projet que vous pourriez réaliser en binome lors des prochains TPs.
+C'est ce genre de projet que vous pourriez réaliser en binôme lors des prochains TPs.
 
 L'enjeu est d'utiliser des Design Patterns pour rendre le code plus lisible, plus maintenable et plus évolutif.
 Il est possible de coder le projet sans, mais les demandes itératives vous conduiront à adopter cette pratique.
@@ -301,24 +296,24 @@ Il est possible de coder le projet sans, mais les demandes itératives vous cond
 - Le serpent peut manger des fruits ou des bonbons, qui apparaissent aléatoirement dans la grille. Ils influent sur le gameplay, on utilisera le DP Décorateur pour cela.
   - Certains fruits augmentent la taille du serpent, d'autres diminuent la taille du serpent.
   - Les bonbons sont des bonus/malus temporaires.
-- Par défaut il ne peut pas se mordre sinon c'est GameOver, on implémentera d'autres modes de jeu grâce au DP Stratégie.
-  - Par exemple, un mode ou si l'on touche un bord on se téléporte de l'autre côté.
+- Par défaut, il ne peut pas se mordre sinon c'est GameOver, on implémentera d'autres modes de jeu grâce au DP Stratégie.
+  - Par exemple, un mode où si l'on touche un bord on se téléporte de l'autre côté.
   - Ou alors des obstacles apparaissent dans la grille.
-- La difficulité par défaut est juste qu'à un moment donné il n'y a plus de place sur la grille.
+- La difficulté par défaut est juste qu'à un moment donné il n'y a plus de place sur la grille.
   - Toujours grâce au DP Stratégie, on pourra imaginer que la vitesse du serpent augmente avec le temps.
   - Ou encore un autre mode de jeu dans lequel, le serpent doit régulièrement manger pour ne pas mourir.
 
-Dans un premier temps on mettra en dur la config des modes de jeu, puis on pourra par exemple créer un menu, qui avec le DP Builder, permettra de sélectionner les modes de jeu.
+Dans un premier temps, on mettra en dur la configuration des modes de jeu, puis on pourra par exemple créer un menu, qui avec le DP Builder, permettra de sélectionner les modes de jeu.
 
-Enfin, comme on découpe notre code en composants, il faut que la vue ou même d'autres services soient au courant des changements dans le jeu (bonus, seuil de point, obstacles, etc). On utilisera le DP Observateur pour cela.
+Enfin, comme on découpe notre code en composants, il faut que la vue ou même d'autres services soient au courant des changements dans le jeu (bonus, seuil de points, obstacles, etc.). On utilisera le DP Observateur pour cela.
 
 Vous voyez que les Design Patterns sont des outils qui permettent de rendre le code plus modulaire et plus évolutif.
 
-L'enjeu est toujours d'avoir une version fonctionnelle, et de rajouter des features sans tout casser, il faut donc coder proprement pour avoir cette flexibilité.
+L'enjeu est toujours d'avoir une version fonctionnelle, et de rajouter des fonctionnalités sans tout casser, il faut donc coder proprement pour avoir cette flexibilité.
 
 ## Implémentation
 
-# Étape 1 : Création du modèle et modification de la vue et contrôleur
+### Étape 1 : Création du modèle et modification de la vue et du contrôleur
 
 Créez une classe `Snake` pour représenter le serpent :
 
@@ -388,10 +383,9 @@ public class Snake {
 }
 ```
 
-- Coté UI, on va avoir différent types de cellules, on va donc créer l'enum `model/CellType` pour les différents types de cellules.
+- Côté UI, nous allons avoir différents types de cellules, nous allons donc créer l'enum `model/CellType` pour les différents types de cellules.
 
 ```java
-
 public enum CellType {
     EMPTY(Color.WHITE),
     SNAKE(Color.BLACK),
@@ -417,9 +411,9 @@ public class MoveEvent extends GameEvent {
     public Integer playerId;
     public Point head;
 
-        public MoveEvent(Integer playerId, Point head) {
-            this.playerId = playerId;
-            this.head = head;
+    public MoveEvent(Integer playerId, Point head) {
+        this.playerId = playerId;
+        this.head = head;
     }
 }
 public class UpdateEvent extends GameEvent {}
@@ -450,7 +444,6 @@ public class GameStateService extends SubmissionPublisher<GameEvent> {
         boardHeight = y;
     }
 
-
     public CellType[][] getBoard() {
         var cells = new CellType[boardHeight][boardWidth];
         for (int i = 0; i < getBoardHeight(); i++) {
@@ -460,7 +453,6 @@ public class GameStateService extends SubmissionPublisher<GameEvent> {
         }
 
         // Draw body of snake
-
         for (var s : snakes.values()) {
             for (var p : s.getBody()) {
                 cells[p.y][p.x] = CellType.SNAKE;
@@ -488,13 +480,11 @@ public class GameStateService extends SubmissionPublisher<GameEvent> {
     }
 
 }
-
-
 ```
 
 > Notez que le service `GameStateService` étend `SubmissionPublisher<GameEvent>`. Cela signifie que `GameStateService` est un Publisher qui publie des événements de jeu.
 > Concrètement, cela signifie que `GameStateService` peut envoyer des événements de jeu à d'autres composants de l'application.
-> En l'occurence, notre contrôleur appelle le service, mais le service lui ne peut pas appeler le contrôleur.
+> En l'occurrence, notre contrôleur appelle le service, mais le service lui ne peut pas appeler le contrôleur.
 > Dans le cas de startGame, nous aurions juste pu l'appeler dans le contrôleur puis effectuer une action ensuite.
 
 > Mais le principe est que le `GameStateService` fait sa vie, le contrôleur est prévenu des changements, et selon, il réagit.
@@ -726,9 +716,9 @@ public class SnakePanel extends JPanel {
 
 ```
 
-# Étape 2 : Ajout des fonctionnalités
+### Étape 2 : Ajout des fonctionnalités
 
-Le projet est enfin intialisé, on va pouvoir commencer à coder les fonctionnalités.
+Le projet est enfin initialisé, on va pouvoir commencer à coder les fonctionnalités.
 
 Pour rappel, le contrôleur met à jour la vue, et le service met à jour le modèle.
 
@@ -759,7 +749,7 @@ public class GameService {
         // Créer un serpent, un seul joueur pour le moment
         Snake snake = new Snake(new Point(10, 10), 3);
 
-        // Nous sommes le joeur 1
+        // Nous sommes le joueur 1
         stateService.addSnake(1, snake);
 
 
@@ -844,13 +834,13 @@ public class MovementService {
 
 ```
 
-Vous remarquez que votre service tourne en arrirère plan, et il gère le déplacement du serpent.
+Vous remarquez que votre service tourne en arrière-plan, et il gère le déplacement du serpent.
 
 Lorsqu'il a fini, le state est mis à jour et on prévient les autres services.
 
 Pour le moment seul le contrôleur est abonné, pour mettre à jour la vue.
 
-# Étape 3 : Ajout des aliments
+### Étape 3 : Ajout des aliments
 
 - Créez une classe abstraite `model/AbstractAliment` pour représenter les aliments du jeu :
 - Créez une classe `model/Fruit` qui hérite de `AbstractAliment` pour représenter les fruits
@@ -896,7 +886,7 @@ scheduler.schedule(
     java.util.concurrent.TimeUnit.SECONDS);
 ```
 
-# Étape 4 : Ajout des obstacles
+### Étape 4 : Ajout des obstacles
 
 - Créez une classe `model/Obstacle` pour représenter les obstacles
 - Modifiez la méthode `getBoard` pour dessiner les obstacles sur la grille
@@ -911,7 +901,7 @@ scheduler.schedule(
     - Pensez à supprimer l'obstacle du GameStateService
   - Pensez à faire disparaître les obstacles au bout de quelques secondes.
 
-# Étape 5 : Ajout des murs
+### Étape 5 : Ajout des murs
 
 - Créez une classe `model/Wall` pour représenter les murs, celle-ci hérite de `Obstacle`
 - Modifiez la méthode `getBoard` pour dessiner les murs sur la grille
@@ -924,7 +914,7 @@ scheduler.schedule(
     - Abonnez vous à cet événement pour afficher une popup dans le contrôleur via la vue, arrêter les différents Schedulers, etc.
 
 
-# Étape 6 : Modification du comportement des aliments
+### Étape 6 : Modification du comportement des aliments
 
 On souhaite que les bonbons aient un effet temporaire, soyez créatif !
 Par exemple, le serpent pourrait ne plus grossir pendant 10 secondes, ou bien il pourrait se déplacer plus vite, ou bien il pourrait être invincible pendant 5 secondes.
@@ -1036,7 +1026,7 @@ public void enleverEffet(AbstractAliment a, Integer playerId) {
     - Vos bonus ne modifient que le GameStateservice, mais grâce au DP Observateur, dans MovementService, vous pouvez réagir à l'ajout ou l'expiration d'un bonus.
         - Par exemple si vous créez un aliment négatif, vous pourriez faire en sorte que le serpent se déplace dans le sens inverse.
 
-# Étape 7 : Implémenter un système de score
+### Étape 7 : Implémenter un système de score
 
 - Créez une classe `model/Score` pour représenter le score du joueur
 - Créez une classe `service/ScoreService` pour gérer le score du joueur
@@ -1046,7 +1036,7 @@ public void enleverEffet(AbstractAliment a, Integer playerId) {
     - Utilisez un scheduler pour augmenter le score toutes les secondes par exemple
 - Modifiez votre vue et votre controleur pour afficher le score du joueur
 
-# Étape 8 : Mise en pause du jeu
+### Étape 8 : Mise en pause du jeu
 
 - Implémentez un système de pause pour le jeu
 - Le joueur peut mettre en pause le jeu en appuyant sur la touche <kbd>Échap</kbd>
@@ -1059,9 +1049,9 @@ public void enleverEffet(AbstractAliment a, Integer playerId) {
 
 
 
-# Étape 9 : DP Stratégie
+### Étape 9 : DP Stratégie
 
-## Présentation 
+#### Présentation 
 
 Nous avons fait des choix arbitraires pour le moment, vous avez sûrement des idées originales pour rendre le jeu plus intéressant, mais vous ne savez pas laquelle choisir.
 
@@ -1150,7 +1140,7 @@ Nous avons ensuite créé deux classes filles `ArrowKeyMovementService` et `ZQSD
 
 **Il serait intéressant de pouvoir changer de stratégie en cours de jeu, le DP Stratégie permet de le faire.**
 
-## Mise en place du DP Stratégie avec Spring Context
+#### Mise en place du DP Stratégie avec Spring Context
 
 Nos classes ont l'annotation `@Service`, nous allons changer cela pour utiliser l'annotation `@Component`.
 
@@ -1347,7 +1337,7 @@ if (e.getKeyCode() == KeyEvent.VK_M) {
 }
 ```
 
-### Bonus : Implémenter le dash
+#### Bonus : Implémenter le dash
 
 - Dans changeDirection, si le joueur va dans la même direction, on ne fait rien : 
 
@@ -1365,7 +1355,7 @@ if (newDirection == snake.getDirection()) {
 }
 ```
 
-**Ne l'implémentez pas si vous manquez de temps**, mais vous comprennez que vous pourriez encore faire une stratégie couplée avec une commande pour faire deux DP en un :
+**Ne l'implémentez pas si vous manquez de temps**, mais vous comprenez que vous pourriez encore faire une stratégie couplée avec une commande pour faire deux DP en un :
 
 ```plantuml
 class MovementService extends AbstractMovementService {
@@ -1419,3 +1409,5 @@ if(newDirection == snake.getDirection()) {
     dashStrategy.onDash(i, newDirection).accept(this);
 }
 ```
+
+
