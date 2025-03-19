@@ -1,3 +1,12 @@
+---
+title: "TP2 : Projet MVC Swing Java"
+produce:
+    html: 
+        remove_answers: false
+---
+
+[TOC]
+
 # TP2 : Projet MVC Swing Java
 
 ## Introduction
@@ -126,7 +135,7 @@ Pour utiliser Spring Context dans le `main` pour lancer le projet, nous allons c
 Vous allez voir des annotations comme `@Controller`, `@Service`, `@Repository`, `@Autowired`, `@Component`, `@Configuration`, `@ComponentScan`, etc.
 Pour le moment, ne vous inquiétez pas de ces annotations, nous allons les voir en détail plus tard.
 
-Modifiez votre classe `App.java` pour utiliser Spring Context :
+Modifiez votre classe `MainApp.java` pour utiliser Spring Context :
 
 ```java
 import org.springframework.context.ApplicationContext;
@@ -154,6 +163,7 @@ import org.springframework.context.annotation.Configuration;
 public class AppConfig {
 }
 ```
+> Pensez à remplacer `cpe.apicot.snake` par le package de votre projet.
 
 Créez une classe `controller/MainController.java` :
 
@@ -236,16 +246,16 @@ public class GreetingService {
 }
 ```
 
-Modifiez la classe `SimpleController` pour utiliser `GreetingService` :
+Modifiez la classe `MainController` pour utiliser `GreetingService` :
 
 ```java
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
 @Controller
-public class SimpleController {
+public class MainController {
     @Autowired
-    private SimpleView view;
+    private MainView view;
 
     @Autowired
     private GreetingService greetingService;
@@ -780,11 +790,11 @@ Créez une classe `service/MovementService` pour gérer les déplacements du ser
 public class MovementService {
     protected GameStateService stateService;
 
-    protected AbstractMovementService(GameStateService stateService) {
+    protected MovementService(GameStateService stateService) {
         this.stateService = stateService;
         this.stateService.subscribe(Sub.get(StartEvent.class, t -> start()));
     }
-    @Override
+    
     public void move(Integer i) {
         Snake s = stateService.getSnake(i);
         if (stateService.isPaused()) {
@@ -1115,6 +1125,7 @@ class MovementService {
 Refactorisez votre code ainsi : 
 
 ```plantuml
+
 interface IMovementService {
     + move(int player)
     + changeDirection(int player, int keyCode)

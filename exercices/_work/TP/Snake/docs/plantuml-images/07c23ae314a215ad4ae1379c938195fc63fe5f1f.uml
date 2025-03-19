@@ -1,0 +1,35 @@
+@startuml
+left to right direction
+
+class Model {
+    - data
+    + getData()
+    + setData()
+}
+
+class View {
+    + displayData()
+}
+
+class Controller {
+    - model
+    - view
+    - service
+}
+
+class Service {
+    - repository
+    + getBooks()
+}
+
+class Repository {
+    + findAll()
+}
+
+Model --> Controller
+View --> Controller
+Controller --> Model
+Controller --> View
+Controller --> Service
+Service --> Repository
+@enduml

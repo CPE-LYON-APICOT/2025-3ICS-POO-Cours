@@ -57,7 +57,7 @@ public class F {
 
 <article>
 
-> Seules la classes A est fonctionnelle.
+> Seule la classes A est fonctionnelle.
 >
 > Puisque A.a est privée, elle ne peut pas être accédée depuis une classe fille, ce qui disqualifie la classe B et la D.
 >

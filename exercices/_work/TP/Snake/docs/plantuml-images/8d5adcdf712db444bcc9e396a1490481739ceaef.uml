@@ -1,0 +1,17 @@
+@startuml
+interface IMovementService {
+    + move(int player)
+    + changeDirection(int player, int keyCode)
+}
+abstract class AbstractMovementService implements IMovementService {
+    + move(int player)
+    + abstract changeDirection(int player, int keyCode)
+}
+class ArrowKeyMovementService extends AbstractMovementService {
+    + changeDirection(int player, int keyCode)
+}
+class ZQSDMovementService extends AbstractMovementService {
+    + changeDirection(int player, int keyCode)
+}
+
+@enduml

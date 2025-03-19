@@ -1,0 +1,8 @@
+@startuml
+
+class MovementService {
+    + move(int player)
+    + changeDirection(int player, int keyCode)
+}
+
+@enduml

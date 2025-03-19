@@ -1,0 +1,65 @@
+// question: 0  name: Switch category to $course$/top/DS
+$CATEGORY: $course$/top/DS
+
+
+// question: 100  name: Exercice 1
+// [id:100]
+::Exercice 1::[html]<p>Soit le code suivant \: </p>\n<p></p>\n<pre class\="language-java"><code>abstract class AbstractManufacturer implements IBikeManufacturer \{\n    //Code à compléter\n    \n    \n\}\npublic class AppDS \{\n    public static void main(String[] args) \{\n        IBikeManufacturer myManufacturer \= new Bmw();\n        Bike bike1 \= myManufacturer.constructSportBike();\n        Bike bike2 \= myManufacturer.constructAdventureBike();\n        List&lt;Bike&gt; bikeList \= new LinkedList&lt;Bike&gt;();\n        bikeList.add(bike1);\n        bikeList.add(bike2);\n        printList(bikeList);\n    \}\n    private static void printList(List&lt;Bike&gt; bikeList) \{\n        for(Bike bike \: bikeList) \{\n              System.out.println(bike);\n          \}\n    \}\n\}\nclass Bike \{\n    private final String name;\n    private final BikeType bikeType;\n    private final int cylinder;\n    private final Engine engine;\n    public Bike(String name, BikeType bikeType, int cylinder, Engine engine) \{\n        this.name\=name;\n        this.bikeType \= bikeType;\n        this.cylinder \= cylinder;\n        this.engine \= engine;\n    \}\n    \n    public String toString() \{\n        String info \="";\n        info +\= "Bike name \: " + name + "\\n";\n        info +\= "Type of bike\: " + bikeType + "\\n";\n        info +\= "Cylinders\: " + cylinder + "\\n";\n        info +\= "Engine\: capacity (cc)\: " + engine.getCapacity() + " / max. torque (Nm)\: " + engine.getTorque() + "\\n";\n        return info;\n    \}\n\}\nclass BikeFactoryStandard implements IBikeFactory \{\n    private String name;\n    private BikeType type;\n    private int cylinder;\n    private Engine engine;\n    \n    public void setName(String name) \{\n        this.name \= name;\n    \}\n    public void setBikeType(BikeType type) \{\n        this.type \= type;\n    \}\n    \n    public void setCylinder(int cylinder) \{\n        this.cylinder \= cylinder;\n    \}\n    \n    public void setEngine(double capacity, double torque) \{\n        this.engine \= new Engine(capacity, torque);\n    \}\n    public Bike getBike() \{\n        return new Bike(name, type, cylinder, engine);\n    \}\n\}\npublic enum BikeType \{\n    Adventure, Sport, Scooter\n\}\n\nclass Bmw extends AbstractManufacturer \{\n    public Bike constructSportBike() \{\n        return constructBike("S1000RR", BikeType.Sport, 1000, 999, 113);\n    \}\n    public Bike constructAdventureBike() \{\n        return constructBike("R1300GS", BikeType.Adventure, 1300, 1290,149);\n    \}\n\}\n\nclass Engine \{\n    private double capacity;\n    private double torque;\n    public Engine(double capacity, double torque) \{\n        this.capacity \= capacity;\n        this.torque \= torque;\n    \}\n    public double getCapacity() \{\n        return capacity;\n    \}\n    public double getTorque() \{\n        return torque;\n    \}\n    public void setCapacity(double capacity) \{\n        this.capacity \= capacity;\n    \}\n    public void setTorque(double torque) \{\n        this.torque \= torque;\n    \}\n\}\n\npublic interface IBikeFactory \{\n    public void setName(String name);\n    public void setBikeType(BikeType type);\n    public void setCylinder(int cylinder);\n    public void setEngine(double capacity, double torque);\n    public Bike getBike();\n\}\n\npublic interface IBikeManufacturer \{\n    public Bike constructSportBike();\n    public Bike constructAdventureBike();\n\}\n</code></pre>
+
+// question: 101  name: Question 1.1
+// [id:101]
+::Question 1.1::[html]<p>Ecrire le code de la classe <code>AbstractManufacturer</code></p>{####<pre class\="language-java"><code>abstract class AbstractManufacturer implements IBikeManufacturer \{\n    IBikeFactory myFactory;\n    public AbstractManufacturer() \{\n        super();\n        myFactory \= new BikeFactoryStandard();\n    \}\n    protected Bike constructBike(String name, BikeType bikeType, int cylinder, double capacity, double torque) \{\n        myFactory.setName(name);\n        myFactory.setBikeType(bikeType);\n        myFactory.setCylinder(cylinder);\n        myFactory.setEngine(capacity, torque);\n        return myFactory.getBike();\n    \}\n    abstract public Bike constructSportBike();\n    abstract public Bike constructAdventureBike();\n\}\n</code></pre>}
+
+// question: 102  name: Question 1.2
+// [id:102]
+::Question 1.2::Le développeur a oublié de coder la création du scooter BMW C400GT, cylindrée 400 cc, capacité 350cc, couple (torque) de 35 Nm. Indiquer le nom de la classe ou de l’interface et le code à ajouter {####<pre class\="language-java"><code></code></pre>}
+
+// question: 103  name: Question 1.3
+// [id:103]
+::Question 1.3::Ce code vous parait-il « Ouvert aux Extensions et Fermé aux modifications » ?{}
+
+// question: 200  name: Exercice 2
+// [id:200]
+::Exercice 2::[markdown]\nFort du succès de votre RPG post-apocalyptique, vous êtes assignés à un nouveau projet de jeu vidéo. Cette fois-ci, le jeu se déroule dans un univers moderne fantastique. Vous devez concevoir un système de déplacement pour les personnages du jeu.\nVous n'avez pas assisté à la réunion avec les responsables créatifs, mais vous avez reçu les notes de la séance avec les idées en vrac, vous devez concevoir un POC (Proof of Concept) pour valider les idées.\n**Il est très probable que le besoin évolue au fur et à mesure que le projet avance, et vous devez à tout prix proposer une implémentation flexible et extensible car des fonctionnalités pourraient être retirées, modifiées ou ajoutées.**\n\#\# Notes de la réunion \n- Les personnages peuvent se déplacer dans l'eau à l'aide de bateaux pour rejoindre d'autres continents.\n- Plus loin dans le jeu, le joueur pourra utiliser un Hippocampe mythologique pour se déplacer dans l'eau.\n- L'équipe créative souhaite développer le système en proposant d'autres montures légendaires, qui contrairement aux véhicules conventionnels, peuvent attaquer les ennemis.\n- Pour passer au-dessus des montagnes, les joueurs pourront débloquer différents avions.\n- Afin de proposer une créature mythologique aérienne, les joueurs pourront utiliser un Griffon.\n- Pour répondre à des besoins de mobilité hybride, un hydravion sera disponible pour les joueurs.\n- Tous les moyens de transport ont une vitesse de déplacement de base.\n- Tout ce qui se déplace dans l'eau renvoie une vitesse de déplacement aquatique dynamique en fonction de l'agitation de la mer.\n    - La vitesse est égale à la vitesse de base multipliée par 2 si la mer est calme, ou divisée par 2 si la mer est agitée.\n- Tout ce qui vole renvoie également une vitesse de déplacement aérien dynamique en fonction du vent.\n    - La vitesse est égale à la vitesse de base multipliée par 2 si le vent est favorable, ou divisée par 2 si le vent est de face. (Le vent peut avoir que 3 valeurs \: favorable, de face ou nul)\n- Seules les montures peuvent attaquer les ennemis, elles choisissent seules leurs cibles.\n- Les véhicules peuvent subir des dégâts mais pourront être réparés (0 à 100%).\n\#\#\# Précisions\n- Un hydravion est un avion qui peut se poser sur l'eau.\n- Un griffon est une créature mythologique mi-aigle mi-lion.\n- Un hippocampe est une créature mythologique mi-cheval mi-poisson.\n```
+\n```\nPrenez bien en considération les notes de la réunion pour concevoir un système de déplacement pour les personnages du jeu.\nCertaines informations sont inutiles, il n'y a pas de synthèse, simplement des idées en vrac, à vous d'éventuellement regrouper des notions qui vous semblent similaires, tout en gardant à l'esprit que le besoin peut évoluer et vous devrez modifier le moins possible votre code.\n\n```
+
+// question: 201  name: Question 2.1
+// [id:201]
+::Question 2.1::[html]Proposez un diagramme de classes pour le système de déplacement, rendez-vous sur <a href\="https\://www.planttext.com/">PlantText</a> et collez le PlantUml
+Faites attention à la visibilité des membres et méthodes, à l'héritage, à l'implémentation d'interfaces et à l'abstraction.{}
+
+// question: 202  name: Question 2.2
+// [id:202]
+::Question 2.2::Donnez le code associé à votre diagramme, veillez à proposer une implémentation pour le calcul de la vitesse dans l'eau et dans les airs.
+(Vous pouvez abréger ce qui vous semble nécessaire, mais attention à ne pas être trop vague){}
+
+// question: 210  name: Question 2.3
+// [id:210]
+[markdown]**Pour les questions suivantes, vous pouvez répondre par une explication et pas forcément par du code**
+
+// question: 211  name: Question 2.3
+// [id:211]
+::Question 2.3::Imaginez que finalement, tous les moyens de transport peuvent attaquer les ennemis, comment modifieriez-vous votre code pour répondre à ce besoin ?{}
+
+// question: 212  name: Question 2.4
+// [id:212]
+::Question 2.4::Imaginez que l'on puisse utiliser certains moyens de transport sur terre pour se déplacer plus vite, comment modifieriez-vous votre code pour répondre à ce besoin ? Donnez un exemple de classe déjà existante qui pourrait adopter ce comportement.{}
+
+// question: 213  name: Question 2.5
+// [id:213]
+::Question 2.5::[markdown]Justifiez vos choix de conception concernant la manière dont vous avez implémenté les fonctionnalités suivantes (Abstraction, Héritage, Interfaces, Visibilité des membres et méthodes, etc.) \:
+\n    - La vitesse de déplacement dynamique en fonction de l'agitation de la mer et du vent.\n    - La manière dont les montures attaquent les ennemis.\n    - La réparation des véhicules et la gestion des points de vie.\n```{}
+
+// question: 220  name: Bonus
+// [id:220]
+Questions bonus 
+
+// question: 221  name: Question 2.6
+// [id:221]
+::Question 2.6::Dans une mise à jour, vos montures peuvent désormais consommer des aliments, les effets sont temporaires et peuvent modifier la manière d'attaquer ou la vitesse de déplacement.
+Quel(s) design pattern(s) pourriez-vous utiliser pour répondre à ce besoin ?{}
+
+// question: 222  name: Question 2.7
+// [id:222]
+::Question 2.7::Proposez une fonctionnalité à l'équipe créative qui pourrait être ajoutée au système de déplacement, votre intérêt est de proposer quelque chose de simple pour vous compte tenu des bons choix de conception que vous avez faits et qui apporterait une mécanique de jeu intéressante.
+Décrivez brièvement cette fonctionnalité et comment vous pourriez l'implémenter.{}

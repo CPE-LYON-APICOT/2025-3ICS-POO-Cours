@@ -1,0 +1,28 @@
+@startuml
+interface IEffet {
+    + appliquer(GameStateService, playerId)
+    + enlever(GameStateService, playerId)
+}
+
+abstract class AbstractAliment implements IEffet {}
+abstract class Fruit extends AbstractAliment  {
+
+    + enlever(GameStateService, playerId)
+
+}
+abstract class Bonbon extends AbstractAliment {
+}
+class SpeedBonbon extends Bonbon {
+    + appliquer(GameStateService, playerId)
+    + enlever(GameStateService, playerId)
+}
+
+class InvincibleBonbon extends Bonbon {
+    + appliquer(GameStateService, playerId)
+    + enlever(GameStateService, playerId)
+}
+class Banana extends Fruit {
+    + appliquer(GameStateService, playerId)
+}
+
+@enduml

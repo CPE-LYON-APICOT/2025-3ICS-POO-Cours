@@ -1,0 +1,24 @@
+@startuml
+left to right direction
+class Model {
+    - data
+    + getData()
+    + setData()
+}
+
+class View {
+    + displayData()
+}
+
+class Controller {
+    - model
+    - view
+    + updateView()
+    + updateModel()
+}
+
+Model --> Controller
+View --> Controller
+Controller --> Model
+Controller --> View
+@enduml

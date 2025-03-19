@@ -1,0 +1,11 @@
+@startuml
+class GameStateService extends Publisher
+class MainController implements Subscriber
+
+MainController -> GameStateService : 1. s'abonne aux changements
+MainController -> GameStateService : 2. fait une action / récupère des données
+GameStateService .> MainController : 3. prévient qu'il s'est passé un truc
+
+MainController -left-> MainView : 4. affiche les données
+
+@enduml

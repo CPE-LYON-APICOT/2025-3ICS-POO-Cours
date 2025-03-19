@@ -17,6 +17,10 @@
 	import Gpt from './deck/gpt.svelte'
 	import Markdown from './deck/markdown.svelte'
 	import Notes from './deck/notes.svelte'
+	import Page from '$routes/+page.svelte'
+	import Annotations from './Chapitres/Annotations.svelte'
+	import DP from './Chapitres/DP.svelte'
+	import Dp from './Chapitres/DP.svelte'
 </script>
 
 <Slide animate={true}>
@@ -147,8 +151,9 @@
 			<span class="font-bold text-orange-400"
 				>Elle permet de protéger les données et de contrôler leur accès.</span
 			>
-			Par exemple, si l'on a un attribut <code>taille</code> dans une classe <code>Personne</code>, on ne veut pas que la taille soit négative. On peut donc contrôler l'accès à cet attribut en le déclarant privé et en fournissant des méthodes publiques pour y accéder et le modifier.
-
+			Par exemple, si l'on a un attribut <code>taille</code> dans une classe <code>Personne</code>,
+			on ne veut pas que la taille soit négative. On peut donc contrôler l'accès à cet attribut en
+			le déclarant privé et en fournissant des méthodes publiques pour y accéder et le modifier.
 		</div>
 	</Slide>
 	<Slide>
@@ -230,13 +235,11 @@
 		<h2>Commet choisir entre une classe abstraite et une interface ?</h2>
 		<div class="fragment border-l-4 border-white-500 pl-4 text-left w-full">
 			Pour choisir entre une classe abstraite et une interface, il faut se poser la question de la
-			relation entre les classes. <br/>
-			Si la relation est de type "est un", alors une classe
-			abstraite est plus appropriée.  <br/>
-			Si la relation est de type "peut faire", alors une
-			interface est plus appropriée.  <br/>
-			Par exemple, un Avion et un Oiseau sont tous deux des objets
-			qui peuvent voler, mais ils ne partagent pas nécessairement une relation de type "est un". <br/>
+			relation entre les classes. <br />
+			Si la relation est de type "est un", alors une classe abstraite est plus appropriée. <br />
+			Si la relation est de type "peut faire", alors une interface est plus appropriée. <br />
+			Par exemple, un Avion et un Oiseau sont tous deux des objets qui peuvent voler, mais ils ne partagent
+			pas nécessairement une relation de type "est un". <br />
 			Dans ce cas, il est plus approprié d'utiliser une interface <code>IVolant</code>.
 		</div>
 	</Slide>
@@ -307,7 +310,8 @@
 			Une interface marqueur est une interface sans méthode, utilisée pour étiqueter une classe. <br
 			/>
 			<span class="font-bold text-orange-400">
-				On découvrira plus tard que les annotations sont une alternative plus puissante aux interfaces marqueurs.
+				On découvrira plus tard que les annotations sont une alternative plus puissante aux
+				interfaces marqueurs.
 			</span>
 		</div>
 	</Slide>
@@ -317,7 +321,37 @@
 <Gnricit />
 <Collections />
 <Lambda />
-
+<Slide id="seance3">
+	<h3>Séance 3</h3>
+</Slide>
+<Slide>
+	<h2>Rappels</h2>
+	<Slide>
+		<p>Nous avons vu les concepts de base de la POO en Java :</p>
+		<ul>
+			<li>L'héritage</li>
+			<li>La composition</li>
+			<li>Les interfaces</li>
+			<li>L'encapsulation</li>
+			<li>Le polymorphisme</li>
+		</ul>
+		<p>Assurez vous de savoir définir chacun de ce concepts et de savoir les différencier.</p>
+	</Slide>
+	<Slide
+		><p>En complément, nous avons abordé des notions "avancées" :</p>
+		<ul>
+			<li>La généricité</li>
+			<li>Les collections</li>
+			<li>Les lambdas / programmation fonctionnelle</li>
+			<li>Les classes et méthodes statiques</li>
+		</ul>
+	</Slide>
+</Slide>
+<DP/>
+<Annotations/>
+<Slide>
+	<h1>Fin du cours</h1>
+</Slide>
 <Exercices />
 <Slide id="annexes">
 	<Slide>

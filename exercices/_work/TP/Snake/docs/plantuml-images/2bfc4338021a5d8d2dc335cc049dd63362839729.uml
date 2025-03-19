@@ -1,0 +1,9 @@
+@startuml
+class GameStateService {
+    + addAliment(Point, AbstractAliment)
+    + removeAliment(Point)
+    + getAliment(Point)
+    - aliments: Map<Point, AbstractAliment>
+
+}
+@enduml

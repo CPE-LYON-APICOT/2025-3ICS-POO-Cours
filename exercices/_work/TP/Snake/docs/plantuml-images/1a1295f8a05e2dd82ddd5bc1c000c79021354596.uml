@@ -1,0 +1,21 @@
+@startuml
+class MovementService extends AbstractMovementService {
+    - IDashStrategy dashStrategy
+    + changeDirection(int player, int keyCode)
+}
+interface IDashStrategy {
+    + Consumer<IMovementService> onDash(int player, Direction direction)
+}
+class DashStrategyMoveFaster implements IDashStrategy {
+    + Consumer<IMovementService> onDash(int player, Direction direction)
+}
+class DashStrategyTeleport implements IDashStrategy {
+    + Consumer<IMovementService> onDash(int player, Direction direction)
+}
+class DashStrategyNothing implements IDashStrategy {
+    + Consumer<IMovementService> onDash(int player, Direction direction)
+}
+
+MovementService *-right-> IDashStrategy
+
+@enduml

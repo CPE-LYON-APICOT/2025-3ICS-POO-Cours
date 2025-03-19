@@ -12,7 +12,6 @@
 	import Markdown from 'reveal.js/plugin/markdown/markdown'
 	import Notes from 'reveal.js/plugin/notes/notes'
 	import Presentation from '../presentation.svelte'
-
 	import ExternalCode from '@edc4it/reveal.js-external-code'
 	onMount(() => {
 		const deck = new Reveal({
