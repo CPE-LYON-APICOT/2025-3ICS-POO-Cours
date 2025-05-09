@@ -8,6 +8,8 @@
 	import td4corrige from '$corriges/TD/TDParc.pdf?url'
 	import tp1 from '$enonces/TP/Fallout/docs/TP1.html?url'
 	import tp2 from '$enonces/TP/Snake/docs/TP2.html?url'
+	
+	import projet from '$enonces/TP/Projet/README.html?url'
 	import configEnv  from '$enonces/TUTO/Mise-en-place-env.html?url'
 	import TD1 from '$enonces/TD/TD1.html?url'
 		import TD2 from '$enonces/TD/TD2.html?url'
@@ -73,7 +75,10 @@
 			</li>
 			<li><a target="_blank" href={tp2}>TP2</a>
 				<span>/ <a target="_blank" href="https://classroom.github.com/a/y58GAhhp">Clonez le dépot</a></span>
-				</li>
+			</li>
+			<li><a target="_blank" href={projet}>Projet</a>
+				<span>/ <a target="_blank" href="https://classroom.github.com/a/mllsoaOR">Clonez le dépot</a></span>
+			</li>
 		</ul>
 	</Slide>
 </Slide>

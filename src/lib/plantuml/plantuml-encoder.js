@@ -1,20 +1,21 @@
+/* eslint-disable @typescript-eslint/ban-ts-comment */
 'use strict'
 
-// @ts-ignore
-var utf8bytes = require('utf8-bytes')
+// @ts-expect-error
+import utf8bytes from 'utf8-bytes'
 
 // @ts-ignore
-var pakoDeflate = require('pako/lib/deflate.js')
-var encode64 = require('./encode64')
+import { deflate } from 'pako/lib/deflate.js'
+import { encode as encode64} from './encode64'
 
 // 1. Encode in UTF-8
 // 2. Compress using Deflate algorithm
 // 3. Reencode using a transformation close to base64
 
 // @ts-ignore
-module.exports.encode = function (text) {
+export function encode (text) {
 	
-	var data = utf8bytes(text)
-	var deflated = pakoDeflate.deflate(data, { level: 9, to: 'string', raw: true })
-	return encode64.encode(deflated)
+	let data = utf8bytes(text)
+	let deflated = deflate(data, { level: 9, to: 'string', raw: true })
+	return encode64(deflated)
 }

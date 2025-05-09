@@ -1,0 +1,16 @@
+@startuml
+enum KeyEvents {
+    UP 
+    DOWN
+    LEFT
+    RIGHT
+    PAUSE
+}
+interface KeyMapping {}
+KeyMapping <|-- AbstractKeyboardMapping
+KeyMapping <|-- AbstractGamepadMapping
+AbstractGamepadMapping <|-- PS5Mapping
+AbstractGamepadMapping <|-- XboxMapping
+AbstractKeyboardMapping <|-- QwertyMapping
+AbstractKeyboardMapping <|-- AzertyMapping
+@enduml

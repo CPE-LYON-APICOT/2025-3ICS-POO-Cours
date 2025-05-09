@@ -1,17 +1,20 @@
 <script lang="ts">
 
+
+	
+
 	import { onMount } from 'svelte'
 
 	import '$lib/plugin/revealjs-fullscreen-code.css'
 	import plantumlEncoder from 'plantuml-encoder'
 	import Reveal from 'reveal.js'
 	import 'reveal.js/dist/reveal.css'
+	
 	import 'reveal.js/dist/theme/black.css'
 	import Highlight from 'reveal.js/plugin/highlight/highlight'
 	import 'reveal.js/plugin/highlight/monokai.css'
 	import Markdown from 'reveal.js/plugin/markdown/markdown'
 	import Notes from 'reveal.js/plugin/notes/notes'
-	import Presentation from '../presentation.svelte'
 	import ExternalCode from '@edc4it/reveal.js-external-code'
 	onMount(() => {
 		const deck = new Reveal({
@@ -31,13 +34,15 @@
 			},
 			minScale: 0.1,
 			maxScale: 1.0,
-			width: 1280,
-			height: 720,
+			width: 1920,
+			height: 1080,
 			pdfSeparateFragments: false
 			// controls: false,
-			// progress: false
+			// progress: false,
 		})
-
+		window.addEventListener('resize', () => {
+			deck.layout(); // recalcul des dimensions
+		});
 		registerPlantUml(deck)
 		deck.initialize({
 			dependencies: [
@@ -63,8 +68,8 @@
 					elements.forEach((element) => {
 						const plantuml = element.textContent
 						const img = document.createElement('img')
-
-						img.src = ('//www.plantuml.com/plantuml/svg/' +
+						img.dataset['previewImage'] = 'true'
+						img.src = ('http://img.plantuml.biz/plantuml/svg/' +
 							plantumlEncoder.encode(plantuml!)) as string
 						var oldElem = (element.parentElement as HTMLElement).closest('div.uml') as HTMLElement
 						img.className = oldElem.className
@@ -78,6 +83,6 @@
 
 <div class="reveal">
 	<div class="slides">
-		<Presentation />
+		<slot></slot>
 	</div>
 </div>

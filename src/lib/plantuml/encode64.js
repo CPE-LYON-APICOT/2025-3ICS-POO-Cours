@@ -37,11 +37,11 @@ function encode6bit(b) {
  * @param {number} b3
  */
 function append3bytes(b1, b2, b3) {
-	var c1 = b1 >> 2
-	var c2 = ((b1 & 0x3) << 4) | (b2 >> 4)
-	var c3 = ((b2 & 0xf) << 2) | (b3 >> 6)
-	var c4 = b3 & 0x3f
-	var r = ''
+	let c1 = b1 >> 2
+	let c2 = ((b1 & 0x3) << 4) | (b2 >> 4)
+	let c3 = ((b2 & 0xf) << 2) | (b3 >> 6)
+	let c4 = b3 & 0x3f
+	let r = ''
 	r += encode6bit(c1 & 0x3f)
 	r += encode6bit(c2 & 0x3f)
 	r += encode6bit(c3 & 0x3f)
@@ -49,9 +49,9 @@ function append3bytes(b1, b2, b3) {
 	return r
 }
 
-module.exports.encode = function (/** @type {string} */ data) {
-	var r = ''
-	for (var i = 0; i < data.length; i += 3) {
+export function encode (/** @type {string} */ data) {
+	let r = ''
+	for (let i = 0; i < data.length; i += 3) {
 		if (i + 2 === data.length) {
 			r += append3bytes(data.charCodeAt(i), data.charCodeAt(i + 1), 0)
 		} else if (i + 1 === data.length) {

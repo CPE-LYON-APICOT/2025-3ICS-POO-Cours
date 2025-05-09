@@ -5,6 +5,10 @@
 	export let data_background_gradient: string | null = null
 	export let data_background_color: string | null = null
 	export let className : string | null = null
+
+	data_background_color = $$props['data-background-color'] || data_background_color
+	data_background_gradient = $$props['data-background-gradient'] || data_background_gradient
+	
 </script>
 
 <section

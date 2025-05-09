@@ -14,14 +14,9 @@
 	import Gnricit from './Chapitres/Généricité.svelte'
 	import Lambda from './Chapitres/Lambda.svelte'
 	import Collections from './Chapitres/Collections.svelte'
-	import Gpt from './deck/gpt.svelte'
-	import Markdown from './deck/markdown.svelte'
-	import Notes from './deck/notes.svelte'
-	import Page from '$routes/+page.svelte'
 	import Annotations from './Chapitres/Annotations.svelte'
 	import DP from './Chapitres/DP.svelte'
-	import Dp from './Chapitres/DP.svelte'
-</script>
+	</script>
 
 <Slide animate={true}>
 	<h1 class="capitalize">{import.meta.env.VITE_PAGE_TITLE}</h1>
@@ -29,6 +24,11 @@
 	<a class="print:hidden" href="/?view=scroll" target="_blank">Version défilable</a><br />
 	<a class="print:hidden" href="#/exercices">Lien vers les TP/TD</a><br />
 	<a class="print:hidden" href="#/annexes">Annexes</a>
+	<br />
+	<a class="print:hidden  !text-red-600 m-2 "  href="#feedback">Feedback</a>
+	
+	<br />
+	<a class="print:hidden  !text-red-600 m-2 " target="_blank" href="/revisions">Révisions</a>
 </Slide>
 
 <Slide data_background_color="#00353F">
@@ -353,6 +353,11 @@
 	<h1>Fin du cours</h1>
 </Slide>
 <Exercices />
+<Slide id="feedback">
+	<a href="https://forms.gle/rajvogoRgbi4vWog7" target="_blank">Ouvrir dans un nouvel onglet</a>
+	<iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfzgCbzh3EwDfvDsH0w6VfgvnqRvB06hgDPcC-A7rrd_Skrfg/viewform?embedded=true" width="1920" height="1080" frameborder="0" marginheight="0" marginwidth="0">Chargement…</iframe>
+	
+</Slide>
 <Slide id="annexes">
 	<Slide>
 		<h1>Annexes</h1></Slide

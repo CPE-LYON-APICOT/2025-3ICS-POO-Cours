@@ -64,6 +64,7 @@ Par contre, il comprend mieux les diagrammes et les explications simples.
 
 Vous voyez dans cet exemple que l'on s'adresse à des décideurs. On ne parle pas de code, on parle de fonctionnalités, de valeur ajoutée, de potentiel.
 En écrivant votre pitch, vous allez vous forcer à prévoir les opportunités et les défis de votre projet et vous devriez déjà avoir en tête les DP à appliquer. 
+
 > Par exemple, l'histoire des skins est un DP Décorateur, les modes de jeu sont un DP Stratégie, le mode créatif un DP Builder + Stratégie, les bonus/malus sont un DP Observateur, etc.
 
 Nous nous mettrons d'accord sur le pitch avant de commencer le projet. 
@@ -76,11 +77,15 @@ Ce n'est pas grave s'il est trop ambitieux, vous n'arriverez pas à tout faire, 
 #### Conception technique 
 
 Suite à votre pitch et à la réunion de présentation, je vais vous aider en vous donnant des pistes pour la réalisation de votre projet. 
+
 Globalement, je vais vous dire "Rajoute cette feature comme ça tu pourras utiliser tel DP". 
+
 Suite à cela, vous devrez rédiger une annexe technique qui explique comment vous allez réaliser votre projet. 
+
 Celle-ci doit être rédigée en Markdown et placée dans le dossier `docs` de votre repo.
 
 > - Vous devrez réaliser à minima 4 DP. Vous précisez quelle feature le DP va permettre de réaliser.
+>
 > - Vous devez inclure 2 diagrammes UML (séquence, classe, cas d'utilisation, etc.).
 
 > **Contrairement au pitch, l'annexe technique est un document technique. C'est comme si vous étiez lead-dev / architecte du projet. Une conception technique est un travail complexe qui n'est pas à votre niveau de formation, c'est pourquoi je vous aiderai et on n'en fera qu'une partie.**
@@ -93,21 +98,26 @@ Il est rare que tout se soit déroulé sans accroc et donc dans les temps impart
 Vous représentez le projet au client (vous pouvez reprendre le pitch), vous présentez habilement ce qui a fonctionné, voire les idées que vous avez eues en cours de développement avec des captures d'écran (vous pouvez utiliser ScreenToGif ou autre pour générer des captures d'écran animées).
 
 Si vous n'avez pas implémenté une feature, expliquez pourquoi et soyez malin.
+
 > Exemple : 
+>
 > Finalement, la mise en place d'obstacles et aliments temporaires n'a pas été réalisée. En effet, lors de la mise en place des fruits/bonbons, il y avait des effets qui n'étaient ni positifs ni négatifs et nous avons trouvé que c'était une bonne idée. Nous ne voulions pas introduire un troisième obstacle et un troisième élément comestible. Le jeu aurait été trop complexe et nous n'aurions pas pu mettre en place le pack de skins saisonnier.
->
-> |Visibilité des éléments|Permanent|Temporaire|
-> |---|---|---|
-> |Bonus|Fruit|Bonbon|
-> |Malus|Obstacle|Poison|
-> |Neutre|Légume|? (Coffre)|
+
+
+|Visibilité des éléments|Permanent|Temporaire|
+|---|---|---|
+|Bonus|Fruit|Bonbon|
+|Malus|Obstacle|Poison|
+|Neutre|Légume|? (Coffre)|
+
 > <figure>Liste des éléments collisionnables envisagés, celle-ci aurait été trop complexe pour le joueur</figure>
->
-> |Visibilité des éléments|Permanent|
-> |---|---|
-> |Bonus|Fruit|
-> |Malus|Obstacle|
-> |Neutre|Coffre|
+
+|Visibilité des éléments|Permanent|
+|---|---|
+|Bonus|Fruit|
+|Malus|Obstacle|
+|Neutre|Coffre|
+
 > <figure>La liste est simplifiée. Il est plus simple pour l'équipe graphique de sortir des packs de skins avec seulement 3 éléments. De plus, le coffre renforce cet aspect surprise / aléatoire.</figure>
 
 Voyez que vous avez grandement simplifié votre code. Il est moins technique que je l'aurais voulu, mais vous avez apporté de la valeur ajoutée pour le client avec les skins. 
@@ -125,33 +135,43 @@ Vous avez réussi à rassurer le client sur le contenu de votre projet, même s'
 Cette fois-ci, vous ne devez pas enjoliver la réalité. Vous devez être honnête sur les points faibles de votre projet, les points forts, les points de vigilance.
 
 > Exemple :
+>
 > - La grille doit être parfaitement carrée. Si elle ne l'est pas, un bug se produit. Nous n'avons pas eu le temps de l'identifier.
+>
 > - Plus le nombre d'éléments à l'écran augmente, plus le jeu saccade. L'important est que le serpent se déplace de manière fluide, peu importe si les bonbons apparaissent avec un léger décalage. Pour cela, il y aurait deux solutions : 
+>
 >   - Avoir deux boucles de rendu, une pour le serpent uniquement et une pour les éléments à l'écran. Cela permettrait de ne pas ralentir le serpent.
+>
 >   - Migrer le projet sur un moteur de jeu qui gère mieux les performances.
 >
 >   Le changement de moteur de jeu est évidemment plus coûteux, mais s'il faut implémenter un mode multijoueur, il faudra de toute façon le faire. Nous recommandons donc la première solution pour le moment.
+>
 > - Les skins sont simplement des images. Il est possible de les changer facilement. Il suffit de les placer dans le dossier `skins` et de les nommer de manière cohérente.
+>
 > - Une tentative de sauvegarde des modes de jeu a été entreprise. Les stratégies sont stockées dans le fichier `game_modes.json`. Le code a été commenté suite à un bug.
+>
 > - Le mappage des touches est fait en fonction de la langue du système. Cela fonctionne donc pour zqsd ou wasd. En outre, les manettes de jeu sont reconnues, mais le mappage des touches n'est pas configurable.
->    ```plantuml
->    @startuml
->    enum KeyEvents {
->        UP 
->        DOWN
->        LEFT
->        RIGHT
->        PAUSE
->    }
->    interface KeyMapping {}
->    KeyMapping <|-- AbstractKeyboardMapping
->    KeyMapping <|-- AbstractGamepadMapping
->    AbstractGamepadMapping <|-- PS5Mapping
->    AbstractGamepadMapping <|-- XboxMapping
->    AbstractKeyboardMapping <|-- QwertyMapping
->    AbstractKeyboardMapping <|-- AzertyMapping
->    @enduml
->    ``` 
+
+
+```plantuml
+@startuml
+enum KeyEvents {
+    UP 
+    DOWN
+    LEFT
+    RIGHT
+    PAUSE
+}
+interface KeyMapping {}
+KeyMapping <|-- AbstractKeyboardMapping
+KeyMapping <|-- AbstractGamepadMapping
+AbstractGamepadMapping <|-- PS5Mapping
+AbstractGamepadMapping <|-- XboxMapping
+AbstractKeyboardMapping <|-- QwertyMapping
+AbstractKeyboardMapping <|-- AzertyMapping
+@enduml
+``` 
+
 
 ## Cycles de développement
 
